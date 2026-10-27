@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#123765">
+<title>Ryuhmo Student Practice Portal</title>
+<style>
+:root {
+  --blue:#123765;
+  --primary:#2563eb;
+  --bg:#f3f6fb;
+  --white:#fff;
+  --text:#172338;
+  --muted:#68768b;
+  --green:#15803d;
+  --red:#dc2626;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
+button,input,select{font:inherit}
+button{cursor:pointer}
+header{background:var(--blue);color:white;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:11px}
+.logo{width:43px;height:43px;background:white;color:var(--blue);border-radius:12px;display:grid;place-items:center;font-size:23px;font-weight:bold}
+.brand h1{font-size:18px;margin:0 0 4px}
+.brand p{font-size:12px;margin:0;color:#d6e4ff}
+nav{display:flex;gap:8px;flex-wrap:wrap}
+nav button{border:1px solid #ffffff55;background:transparent;color:white;padding:9px 12px;border-radius:8px}
+nav button:hover{background:#ffffff20}
+main{max-width:1050px;margin:auto;padding:25px 16px 50px}
+.hero{background:linear-gradient(120deg,#123765,#2563eb);color:white;padding:30px 25px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.hero h2{font-size:clamp(25px,5vw,38px);margin:0 0 12px}
+.hero p{line-height:1.6;color:#e1eaff;max-width:570px}
+.hero-icon{font-size:70px}
+.btn{border:0;border-radius:9px;padding:12px 17px;font-weight:bold}
+.btn-primary{background:var(--primary);color:white}
+.btn-light{background:white;color:var(--blue)}
+.btn-outline{border:1px solid #ccd5e3;background:white;color:var(--text)}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.section-title{margin:29px 0 15px;font-size:21px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.card{background:white;border:1px solid #e0e7f0;border-radius:14px;padding:21px;box-shadow:0 3px 12px #10204008}
+.course-icon{font-size:32px;margin-bottom:10px}
+.card h3{margin:6px 0 9px}
+.card p{color:var(--muted);font-size:14px;line-height:1.6}
+.meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+.tag{background:#edf3ff;color:#214e91;border-radius:20px;padding:6px 10px;font-size:12px}
+.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
+.stat{background:white;padding:17px;border:1px solid #e0e7f0;border-radius:12px}
+.stat strong{font-size:24px;display:block;margin-bottom:5px}
+.stat span{font-size:12px;color:var(--muted)}
+.panel{background:white;border:1px solid #e0e7f0;border-radius:15px;padding:22px;margin-top:18px}
+.hidden{display:none!important}
+.notice{padding:13px 15px;border-radius:10px;background:#fff7df;color:#79520a;font-size:13px;line-height:1.6;margin:17px 0}
+.small{font-size:12px;color:var(--muted);line-height:1.6}
+footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
+input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;margin:7px 0 14px;background:white}
+label{font-size:13px;font-weight:bold}
+.quiz-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
+.progress{height:7px;background:#e7edf6;border-radius:8px;overflow:hidden;margin:17px 0}
+.progress div{height:100%;background:var(--primary);width:0;transition:width .2s}
+.question{font-size:20px;line-height:1.5;margin:24px 0}
+.option{display:flex;gap:11px;align-items:flex-start;padding:14px;margin:10px 0;border:1px solid #d9e1ed;border-radius:10px;cursor:pointer}
+.option input{width:auto;margin:3px 0 0}
+.option.selected{border-color:var(--primary);background:#eff6ff}
+.option.correct{border-color:var(--green);background:#f0fdf4}
+.option.wrong{border-color:var(--red);background:#fef2f2}
+.quiz-actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
+.answer-note{margin-top:14px;padding:13px;border-radius:9px;background:#f1f5f9;font-size:14px;line-height:1.6}
+@media(max-width:600px){
+ header{padding:14px}
+ .hero{padding:23px 18px}
+ .hero-icon{font-size:43px}
+ .grid{grid-template-columns:1fr}
+ .stats{gap:7px}
+ .stat{padding:12px}
+ .stat strong{font-size:20px}
+ main{padding:18px 12px 35px}
+ .panel{padding:17px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">
+    <div class="logo">R</div>
+    <div>
+      <h1>RYUHMO STUDENT PRACTICE</h1>
+      <p>CCC &amp; Office Automation and IT Assistant</p>
+    </div>
+  </div>
+  <nav>
+    <button onclick="showHome()">Home</button>
+    <button onclick="showCourses()">Practice Tests</button>
+  </nav>
+</header>
+
+<main>
+  <section id="home">
+    <div class="hero">
+      <div>
+        <h2>Learn. Practise. Succeed.</h2>
+        <p>Prepare for CCC and OAITA with multiple-choice practice questions, timed quizzes and instant results.</p>
+        <button class="btn btn-light" onclick="showCourses()">Start Practising →</button>
+      </div>
+      <div class="hero-icon">🎓</div>
+    </div>
+
+    <div class="notice">
+      <strong>Practice portal preview:</strong> This version runs sample tests in your browser.
+      Login, secure result storage and teacher monitoring are not connected yet.
+      Do not enter real passwords or confidential student information.
+    </div>
+
+    <h2 class="section-title">Choose Your Course</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="course-icon">💻</div>
+        <h3>CCC Practice</h3>
+        <p>Practise computer fundamentals, office applications, internet use, digital services and cybersecurity.</p>
+        <div class="meta"><span class="tag">MCQ Questions</span><span class="tag">Instant Results</span></div>
+        <button class="btn btn-primary" onclick="startTest('CCC')">Start CCC Test</button>
+      </article>
+      <article class="card">
+        <div class="course-icon">📚</div>
+        <h3>OAITA Practice</h3>
+        <p>Practise office automation, word processing, spreadsheets, presentations and IT fundamentals.</p>
+        <div class="meta"><span class="tag">MCQ Questions</span><span class="tag">Instant Results</span></div>
+        <button class="btn btn-primary" onclick="startTest('OAITA')">Start OAITA Test</button>
+      </article>
+    </div>
+
+    <h2 class="section-title">Your Practice Summary</h2>
+    <div class="stats">
+      <div class="stat"><strong id="attemptCount">0</strong><span>Tests completed on this device</span></div>
+      <div class="stat"><strong id="bestScore">—</strong><span>Best percentage</span></div>
+      <div class="stat"><strong>2</strong><span>Available courses</span></div>
+    </div>
+    <p class="small">Practice history is stored locally in this browser only. It is not visible to your teacher and may disappear if browser data is cleared.</p>
+  </section>
+
+  <section id="courses" class="hidden">
+    <button class="btn btn-outline" onclick="showHome()">← Home</button>
+    <h2 class="section-title">Select a Practice Test</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="course-icon">💻</div><h3>CCC — Sample Test 1</h3>
+        <p>Computer concepts, internet, digital payments and office tools.</p>
+        <div class="meta"><span class="tag">10 questions</span><span class="tag">10 minutes</span></div>
+        <button class="btn btn-primary" onclick="startTest('CCC')">Begin Test</button>
+      </article>
+      <article class="card">
+        <div class="course-icon">📝</div><h3>OAITA — Sample Test 1</h3>
+        <p>Word processing, spreadsheets, presentations and computer basics.</p>
+        <div class="meta"><span class="tag">10 questions</span><span class="tag">10 minutes</span></div>
+        <button class="btn btn-primary" onclick="startTest('OAITA')">Begin Test</button>
+      </article>
+    </div>
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="panel">
+      <div class="quiz-top">
+        <div><span class="tag" id="courseTag">CCC</span><h2 id="quizTitle">Practice Test</h2></div>
+        <div><strong>Time: <span id="timer">10:00</span></strong></div>
+      </div>
+      <div class="progress"><div id="progressBar"></div></div>
+      <div class="quiz-top">
+        <span class="small" id="questionCounter">Question 1 of 10</span>
+        <span class="small" id="answeredCount">Answered: 0</span>
+      </div>
+      <h3 class="question" id="questionText"></h3>
+      <div id="options"></div>
+      <div id="answerNote" class="answer-note hidden"></div>
+      <div class="quiz-actions">
+        <button id="prevBtn" class="btn btn-outline" onclick="previousQuestion()">← Previous</button>
+        <button id="reviewBtn" class="btn btn-outline" onclick="toggleReview()">Mark for review</button>
+        <button id="nextBtn" class="btn btn-primary" onclick="nextQuestion()">Next →</button>
+        <button id="submitBtn" class="btn btn-primary hidden" onclick="submitTest()">Submit Test</button>
+      </div>
+    </div>
+    <p class="small">Choose one answer per question. Review your choices before submitting.</p>
+  </section>
+
+  <section id="results" class="hidden">
+    <div class="panel" style="text-align:center">
+      <div style="font-size:54px">🏆</div>
+      <h2>Test Completed!</h2>
+      <p id="resultCourse">Practice Test</p>
+      <div class="stats">
+        <div class="stat"><strong id="scoreValue">0/10</strong><span>Correct answers</span></div>
+        <div class="stat"><strong id="percentValue">0%</strong><span>Your score</span></div>
+        <div class="stat"><strong id="wrongValue">0</strong><span>Incorrect or unanswered</span></div>
+      </div>
+      <p id="resultMessage"></p>
+      <button class="btn btn-primary" onclick="reviewAnswers()">Review Answers</button>
+      <button class="btn btn-outline" onclick="showCourses()">Try Another Test</button>
+      <button class="btn btn-outline" onclick="showHome()">Home</button>
+    </div>
+    <div id="reviewList"></div>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Ryuhmo Student Practice Portal<br>
+  Independent practice resource. Sample questions are not official examination questions.
+</footer>
+
+<script>
+const questionBank = {
+ CCC: [
+  {q:"What does CPU stand for?",o:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],a:0,e:"CPU means Central Processing Unit. It executes instructions and processes data."},
+  {q:"Which device is primarily used to enter text?",o:["Monitor","Keyboard","Speaker","Projector"],a:1,e:"A keyboard is an input device used to enter text and commands."},
+  {q:"Which of these is an operating system?",o:["Microsoft Word","Windows","Google Search","PowerPoint"],a:1,e:"Windows is an operating system that manages computer hardware and software."},
+  {q:"What is the full form of RAM?",o:["Read Access Memory","Random Access Memory","Run Active Memory","Rapid Application Module"],a:1,e:"RAM stands for Random Access Memory. It temporarily holds data used by running programs."},
+  {q:"Which application is mainly used for spreadsheets?",o:["Microsoft Excel","Microsoft Paint","Notepad","VLC Player"],a:0,e:"Excel is a spreadsheet application used for calculations, tables and charts."},
+  {q:"What does URL identify?",o:["A computer's battery","A web resource address","A printer model","A file size"],a:1,e:"URL stands for Uniform Resource Locator, the address of a resource on the web."},
+  {q:"Which is an example of a strong security practice?",o:["Sharing passwords","Using the same password everywhere","Using unique passwords and multifactor authentication","Clicking every email link"],a:2,e:"Unique passwords and multifactor authentication help protect accounts."},
+  {q:"Which device produces a hard copy?",o:["Scanner","Printer","Microphone","Webcam"],a:1,e:"A printer produces a physical copy of digital content."},
+  {q:"What does phishing attempt to do?",o:["Improve computer speed","Steal sensitive information through deception","Clean a keyboard","Create a spreadsheet"],a:1,e:"Phishing uses deceptive messages or websites to obtain sensitive information."},
+  {q:"Which of these is a web browser?",o:["Google Chrome","Microsoft Excel","Windows Calculator","Adobe Reader"],a:0,e:"Google Chrome is a web browser used to access websites."},
+  {q:"Which key is commonly used to refresh a webpage on Windows?",o:["F1","F5","F12","Esc"],a:1,e:"F5 commonly refreshes the current webpage."},
+  {q:"Which is an example of cloud storage?",o:["Google Drive","A wired mouse","A keyboard","A local calculator"],a:0,e:"Google Drive stores files online and can make them accessible across devices."}
+ ],
+ OAITA: [
+  {q:"Which application is commonly used to create letters?",o:["Word processor","Media player","Calculator only","Antivirus only"],a:0,e:"A word processor is used to create, format and print documents."},
+  {q:"In a spreadsheet, what is the intersection of a row and column called?",o:["Slide","Cell","Page","Folder"],a:1,e:"A cell is the intersection of a row and a column."},
+  {q:"Which formula adds values from A1 to A5 in Excel?",o:["=ADD(A1-A5)","=SUM(A1:A5)","=TOTAL(A1;A5)","=PLUS(A1:A5)"],a:1,e:"SUM adds the values in the specified cell range."},
+  {q:"Which software is primarily used to create slide presentations?",o:["Microsoft PowerPoint","Notepad","File Explorer","Calculator"],a:0,e:"PowerPoint is presentation software used to create slides."},
+  {q:"What is the shortcut for copying selected text in Windows?",o:["Ctrl+X","Ctrl+V","Ctrl+C","Ctrl+Z"],a:2,e:"Ctrl+C copies selected content."},
+  {q:"What does Ctrl+Z commonly do?",o:["Undo the last action","Print the page","Save as","Select all"],a:0,e:"Ctrl+Z usually reverses the most recent action."},
+  {q:"Which spreadsheet reference represents column B, row 4?",o:["4B","B4","BB4","RowB"],a:1,e:"Cell addresses use the column letter followed by the row number."},
+  {q:"What is mail merge used for?",o:["Repairing a monitor","Creating personalized documents for multiple recipients","Deleting all emails","Compressing videos"],a:1,e:"Mail merge combines a document template with a recipient data source."},
+  {q:"Which file extension is commonly associated with modern Word documents?",o:[".xlsx",".pptx",".docx",".mp3"],a:2,e:".docx is the common modern Microsoft Word document extension."},
+  {q:"What is the purpose of a presentation's slide transition?",o:["Control how one slide changes to the next","Calculate a spreadsheet","Check spelling in a document only","Create a password"],a:0,e:"Transitions control the visual effect between slides."},
+  {q:"Which feature arranges data alphabetically or numerically?",o:["Sort","Zoom","Crop","Slide Show"],a:0,e:"Sorting orders data alphabetically, numerically or by other criteria."},
+  {q:"What does the spell-check tool help identify?",o:["Low battery","Potential spelling errors","Internet speed","Monitor resolution"],a:1,e:"Spell-check highlights possible spelling errors in a document."}
+ ]
+};
+
+let course="CCC", questions=[], current=0, answers={}, reviewed={};
+let seconds=600, timerId=null, submitted=false, reviewMode=false;
+const $=id=>document.getElementById(id);
+
+function showSection(id){
+ ["home","courses","quiz","results"].forEach(s=>$(s).classList.toggle("hidden",s!==id));
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+function showHome(){stopTimer();showSection("home");updateStats();}
+function showCourses(){stopTimer();showSection("courses");}
+function updateStats(){
+ let history=[];
+ try{history=JSON.parse(localStorage.getItem("ryuhmoPracticeHistory")||"[]")}catch(e){}
+ $("attemptCount").textContent=history.length;
+ $("bestScore").textContent=history.length?Math.max(...history.map(x=>x.percent))+"%":"—";
+}
+function startTest(selectedCourse){
+ stopTimer();
+ course=selectedCourse;
+ // Select 10 questions, rotating the bank if needed.
+ const bank=questionBank[course];
+ questions=bank.slice(0,10).sort(()=>Math.random()-.5);
+ current=0;answers={};reviewed={};seconds=600;submitted=false;reviewMode=false;
+ $("courseTag").textContent=course;
+ $("quizTitle").textContent=course+" Sample Test";
+ $("answerNote").classList.add("hidden");
+ $("submitBtn").classList.add("hidden");
+ $("nextBtn").classList.remove("hidden");
+ showSection("quiz");renderQuestion();updateTimer();
+ timerId=setInterval(()=>{
+   seconds--;
+   updateTimer();
+   if(seconds<=0)submitTest();
+ },1000);
+}
+function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
+function updateTimer(){
+ $("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+(seconds%60).toString().padStart(2,"0");
+}
+function renderQuestion(){
+ const item=questions[current];
+ $("questionCounter").textContent="Question "+(current+1)+" of "+questions.length+(reviewed[current]?" • Marked for review":"");
+ $("questionText").textContent=item.q;
+ $("progressBar").style.width=((current+1)/questions.length*100)+"%";
+ $("answeredCount").textContent="Answered: "+Object.keys(answers).length;
+ $("prevBtn").disabled=current===0;
+ $("reviewBtn").textContent=reviewed[current]?"Remove review mark":"Mark for review";
+ $("options").innerHTML="";
+ $("answerNote").classList.add("hidden");
+ item.o.forEach((option,i)=>{
+  const label=document.createElement("label");
+  label.className="option"+(answers[current]===i?" selected":"");
+  const radio=document.createElement("input");
+  radio.type="radio";radio.name="answer";radio.checked=answers[current]===i;
+  radio.disabled=submitted;
+  radio.addEventListener("change",()=>{
+    answers[current]=i;renderQuestion();
+  });
+  const span=document.createElement("span");
+  span.textContent=String.fromCharCode(65+i)+". "+option;
+  label.append(radio,span);
+  if(submitted){
+   if(i===item.a)label.classList.add("correct");
+   else if(answers[current]===i)label.classList.add("wrong");
+  }
+  $("options").appendChild(label);
+ });
+ $("nextBtn").textContent=current===questions.length-1?"Finish questions →":"Next →";
+ if(submitted){
+   $("nextBtn").classList.add("hidden");
+   $("submitBtn").classList.add("hidden");
+   $("answerNote").classList.remove("hidden");
+   $("answerNote").textContent=(answers[current]===item.a?"Correct. ":"Incorrect or unanswered. ")+"Explanation: "+item.e;
+ } else {
+   $("nextBtn").classList.remove("hidden");
+   $("submitBtn").classList.toggle("hidden",current!==questions.length-1);
+ }
+}
+function previousQuestion(){if(current>0){current--;renderQuestion()}}
+function nextQuestion(){
+ if(current<questions.length-1){current++;renderQuestion()}
+ else submitTest();
+}
+function toggleReview(){reviewed[current]=!reviewed[current];renderQuestion()}
+function submitTest(){
+ if(submitted)return;
+ if(!confirm("Submit your test now? You cannot change answers afterward."))return;
+ submitted=true;stopTimer();
+ const correct=questions.filter((q,i)=>answers[i]===q.a).length;
+ const percent=Math.round(correct/questions.length*100);
+ $("resultCourse").textContent=course+" Sample Test";
+ $("scoreValue").textContent=correct+"/"+questions.length;
+ $("percentValue").textContent=percent+"%";
+ $("wrongValue").textContent=questions.length-correct;
+ $("resultMessage").textContent=percent>=80?"Excellent work! Keep practising.":percent>=50?"Good effort. Review incorrect answers and try again.":"Keep learning. Review the explanations and practise again.";
+ let history=[];
+ try{history=JSON.parse(localStorage.getItem("ryuhmoPracticeHistory")||"[]")}catch(e){}
+ history.push({course,percent,correct,date:new Date().toISOString()});
+ try{localStorage.setItem("ryuhmoPracticeHistory",JSON.stringify(history))}catch(e){}
+ updateStats();
+ $("reviewList").innerHTML="";
+ questions.forEach((q,i)=>{
+  const box=document.createElement("div");box.className="panel";
+  const title=document.createElement("h3");title.textContent=(i+1)+". "+q.q;
+  const result=document.createElement("p");
+  result.textContent="Your answer: "+(answers[i]===undefined?"Not answered":q.o[answers[i]])+" | Correct answer: "+q.o[q.a];
+  result.style.color=answers[i]===q.a?"#15803d":"#dc2626";
+  const explanation=document.createElement("p");explanation.className="small";explanation.textContent="Explanation: "+q.e;
+  box.append(title,result,explanation);$("reviewList").appendChild(box);
+ });
+ showSection("results");
+}
+function reviewAnswers(){
+ submitted=true;reviewMode=true;current=0;
+ showSection("quiz");renderQuestion();
+ $("quizTitle").textContent=course+" — Answer Review";
+}
+$("year").textContent=new Date().getFullYear();
+updateStats();
+</script>
+</body>
+</html>
