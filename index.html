@@ -1,213 +1,40 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#123765">
-<title>Ryuhmo Student Practice Portal</title>
-<style>
-:root {
-  --blue:#123765;
-  --primary:#2563eb;
-  --bg:#f3f6fb;
-  --white:#fff;
-  --text:#172338;
-  --muted:#68768b;
-  --green:#15803d;
-  --red:#dc2626;
-}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--text)}
-button,input,select{font:inherit}
-button{cursor:pointer}
-header{background:var(--blue);color:white;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
-.brand{display:flex;align-items:center;gap:11px}
-.logo{width:43px;height:43px;background:white;color:var(--blue);border-radius:12px;display:grid;place-items:center;font-size:23px;font-weight:bold}
-.brand h1{font-size:18px;margin:0 0 4px}
-.brand p{font-size:12px;margin:0;color:#d6e4ff}
-nav{display:flex;gap:8px;flex-wrap:wrap}
-nav button{border:1px solid #ffffff55;background:transparent;color:white;padding:9px 12px;border-radius:8px}
-nav button:hover{background:#ffffff20}
-main{max-width:1050px;margin:auto;padding:25px 16px 50px}
-.hero{background:linear-gradient(120deg,#123765,#2563eb);color:white;padding:30px 25px;border-radius:18px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-.hero h2{font-size:clamp(25px,5vw,38px);margin:0 0 12px}
-.hero p{line-height:1.6;color:#e1eaff;max-width:570px}
-.hero-icon{font-size:70px}
-.btn{border:0;border-radius:9px;padding:12px 17px;font-weight:bold}
-.btn-primary{background:var(--primary);color:white}
-.btn-light{background:white;color:var(--blue)}
-.btn-outline{border:1px solid #ccd5e3;background:white;color:var(--text)}
-.btn:disabled{opacity:.45;cursor:not-allowed}
-.section-title{margin:29px 0 15px;font-size:21px}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
-.card{background:white;border:1px solid #e0e7f0;border-radius:14px;padding:21px;box-shadow:0 3px 12px #10204008}
-.course-icon{font-size:32px;margin-bottom:10px}
-.card h3{margin:6px 0 9px}
-.card p{color:var(--muted);font-size:14px;line-height:1.6}
-.meta{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
-.tag{background:#edf3ff;color:#214e91;border-radius:20px;padding:6px 10px;font-size:12px}
-.stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:18px}
-.stat{background:white;padding:17px;border:1px solid #e0e7f0;border-radius:12px}
-.stat strong{font-size:24px;display:block;margin-bottom:5px}
-.stat span{font-size:12px;color:var(--muted)}
-.panel{background:white;border:1px solid #e0e7f0;border-radius:15px;padding:22px;margin-top:18px}
-.hidden{display:none!important}
-.notice{padding:13px 15px;border-radius:10px;background:#fff7df;color:#79520a;font-size:13px;line-height:1.6;margin:17px 0}
-.small{font-size:12px;color:var(--muted);line-height:1.6}
-footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}
-input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:8px;margin:7px 0 14px;background:white}
-label{font-size:13px;font-weight:bold}
-.quiz-top{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
-.progress{height:7px;background:#e7edf6;border-radius:8px;overflow:hidden;margin:17px 0}
-.progress div{height:100%;background:var(--primary);width:0;transition:width .2s}
-.question{font-size:20px;line-height:1.5;margin:24px 0}
-.option{display:flex;gap:11px;align-items:flex-start;padding:14px;margin:10px 0;border:1px solid #d9e1ed;border-radius:10px;cursor:pointer}
-.option input{width:auto;margin:3px 0 0}
-.option.selected{border-color:var(--primary);background:#eff6ff}
-.option.correct{border-color:var(--green);background:#f0fdf4}
-.option.wrong{border-color:var(--red);background:#fef2f2}
-.quiz-actions{display:flex;justify-content:space-between;gap:10px;margin-top:22px;flex-wrap:wrap}
-.answer-note{margin-top:14px;padding:13px;border-radius:9px;background:#f1f5f9;font-size:14px;line-height:1.6}
-@media(max-width:600px){
- header{padding:14px}
- .hero{padding:23px 18px}
- .hero-icon{font-size:43px}
- .grid{grid-template-columns:1fr}
- .stats{gap:7px}
- .stat{padding:12px}
- .stat strong{font-size:20px}
- main{padding:18px 12px 35px}
- .panel{padding:17px}
-}
-</style>
-</head>
-<body>
-<header>
-  <div class="brand">
-    <div class="logo">R</div>
-    <div>
-      <h1>RYUHMO STUDENT PRACTICE</h1>
-      <p>CCC &amp; Office Automation and IT Assistant</p>
-    </div>
-  </div>
-  <nav>
-    <button onclick="showHome()">Home</button>
-    <button onclick="showCourses()">Practice Tests</button>
-  </nav>
-</header>
-
-<main>
-  <section id="home">
-    <div class="hero">
-      <div>
-        <h2>Learn. Practise. Succeed.</h2>
-        <p>Prepare for CCC and OAITA with multiple-choice practice questions, timed quizzes and instant results.</p>
-        <button class="btn btn-light" onclick="showCourses()">Start Practising →</button>
-      </div>
-      <div class="hero-icon">🎓</div>
-    </div>
-
-    <div class="notice">
-      <strong>Practice portal preview:</strong> This version runs sample tests in your browser.
-      Login, secure result storage and teacher monitoring are not connected yet.
-      Do not enter real passwords or confidential student information.
-    </div>
-
-    <h2 class="section-title">Choose Your Course</h2>
-    <div class="grid">
-      <article class="card">
-        <div class="course-icon">💻</div>
-        <h3>CCC Practice</h3>
-        <p>Practise computer fundamentals, office applications, internet use, digital services and cybersecurity.</p>
-        <div class="meta"><span class="tag">MCQ Questions</span><span class="tag">Instant Results</span></div>
-        <button class="btn btn-primary" onclick="startTest('CCC')">Start CCC Test</button>
-      </article>
-      <article class="card">
-        <div class="course-icon">📚</div>
-        <h3>OAITA Practice</h3>
-        <p>Practise office automation, word processing, spreadsheets, presentations and IT fundamentals.</p>
-        <div class="meta"><span class="tag">MCQ Questions</span><span class="tag">Instant Results</span></div>
-        <button class="btn btn-primary" onclick="startTest('OAITA')">Start OAITA Test</button>
-      </article>
-    </div>
-
-    <h2 class="section-title">Your Practice Summary</h2>
-    <div class="stats">
-      <div class="stat"><strong id="attemptCount">0</strong><span>Tests completed on this device</span></div>
-      <div class="stat"><strong id="bestScore">—</strong><span>Best percentage</span></div>
-      <div class="stat"><strong>2</strong><span>Available courses</span></div>
-    </div>
-    <p class="small">Practice history is stored locally in this browser only. It is not visible to your teacher and may disappear if browser data is cleared.</p>
-  </section>
-
-  <section id="courses" class="hidden">
-    <button class="btn btn-outline" onclick="showHome()">← Home</button>
-    <h2 class="section-title">Select a Practice Test</h2>
-    <div class="grid">
-      <article class="card">
-        <div class="course-icon">💻</div><h3>CCC — Sample Test 1</h3>
-        <p>Computer concepts, internet, digital payments and office tools.</p>
-        <div class="meta"><span class="tag">10 questions</span><span class="tag">10 minutes</span></div>
-        <button class="btn btn-primary" onclick="startTest('CCC')">Begin Test</button>
-      </article>
-      <article class="card">
-        <div class="course-icon">📝</div><h3>OAITA — Sample Test 1</h3>
-        <p>Word processing, spreadsheets, presentations and computer basics.</p>
-        <div class="meta"><span class="tag">10 questions</span><span class="tag">10 minutes</span></div>
-        <button class="btn btn-primary" onclick="startTest('OAITA')">Begin Test</button>
-      </article>
-    </div>
-  </section>
-
-  <section id="quiz" class="hidden">
-    <div class="panel">
-      <div class="quiz-top">
-        <div><span class="tag" id="courseTag">CCC</span><h2 id="quizTitle">Practice Test</h2></div>
-        <div><strong>Time: <span id="timer">10:00</span></strong></div>
-      </div>
-      <div class="progress"><div id="progressBar"></div></div>
-      <div class="quiz-top">
-        <span class="small" id="questionCounter">Question 1 of 10</span>
-        <span class="small" id="answeredCount">Answered: 0</span>
-      </div>
-      <h3 class="question" id="questionText"></h3>
-      <div id="options"></div>
-      <div id="answerNote" class="answer-note hidden"></div>
-      <div class="quiz-actions">
-        <button id="prevBtn" class="btn btn-outline" onclick="previousQuestion()">← Previous</button>
-        <button id="reviewBtn" class="btn btn-outline" onclick="toggleReview()">Mark for review</button>
-        <button id="nextBtn" class="btn btn-primary" onclick="nextQuestion()">Next →</button>
-        <button id="submitBtn" class="btn btn-primary hidden" onclick="submitTest()">Submit Test</button>
-      </div>
-    </div>
-    <p class="small">Choose one answer per question. Review your choices before submitting.</p>
-  </section>
-
-  <section id="results" class="hidden">
-    <div class="panel" style="text-align:center">
-      <div style="font-size:54px">🏆</div>
-      <h2>Test Completed!</h2>
-      <p id="resultCourse">Practice Test</p>
-      <div class="stats">
-        <div class="stat"><strong id="scoreValue">0/10</strong><span>Correct answers</span></div>
-        <div class="stat"><strong id="percentValue">0%</strong><span>Your score</span></div>
-        <div class="stat"><strong id="wrongValue">0</strong><span>Incorrect or unanswered</span></div>
-      </div>
-      <p id="resultMessage"></p>
-      <button class="btn btn-primary" onclick="reviewAnswers()">Review Answers</button>
-      <button class="btn btn-outline" onclick="showCourses()">Try Another Test</button>
-      <button class="btn btn-outline" onclick="showHome()">Home</button>
-    </div>
-    <div id="reviewList"></div>
-  </section>
-</main>
-
-<footer>
-  © <span id="year"></span> Ryuhmo Student Practice Portal<br>
-  Independent practice resource. Sample questions are not official examination questions.
-</footer>
-
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102a43"><title>Ryuhmo Learning Portal</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+:root{--navy:#102a43;--blue:#1769aa;--cyan:#27a6b8;--ink:#172b4d;--muted:#62748a;--bg:#f3f7fb;--line:#e1e9f1;--green:#14804a;--red:#c0392b;--shadow:0 12px 35px #102a4310}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,Segoe UI,sans-serif}button,input,select{font:inherit}button{cursor:pointer}header{background:linear-gradient(110deg,#102a43,#145b86);color:white;padding:15px max(18px,calc((100% - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.brand{display:flex;gap:12px;align-items:center}.mark{height:44px;width:44px;border-radius:13px;background:white;color:#145b86;display:grid;place-items:center;font-size:24px;font-weight:900}.brand h1{font-size:17px;margin:0}.brand p{margin:3px 0 0;color:#d4e6f5;font-size:12px}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav button{background:#ffffff12;border:1px solid #ffffff45;color:white;border-radius:9px;padding:8px 12px}.wrap{max-width:1160px;margin:auto;padding:28px 18px 55px}.hero{background:linear-gradient(120deg,#102a43,#1769aa 70%,#27a6b8);color:white;border-radius:23px;padding:clamp(25px,5vw,50px);display:grid;grid-template-columns:1.5fr .6fr;align-items:center;gap:20px;box-shadow:var(--shadow)}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#b9e7f1}.hero h2{font-size:clamp(30px,5vw,47px);line-height:1.12;margin:12px 0}.hero p{color:#e0edf7;max-width:620px}.hero-art{text-align:center;font-size:100px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750}.primary{background:var(--blue);color:white}.light{background:white;color:var(--navy)}.outline{background:white;border:1px solid var(--line);color:var(--ink)}.danger{background:#fff0ef;color:var(--red);border:1px solid #ffd2ce}.btn:disabled{opacity:.5;cursor:not-allowed}.actions,.right{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:30px 0 15px}.head h2{margin:0;font-size:22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card,.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:var(--shadow)}.card h3{margin:7px 0}.card p,.muted{color:var(--muted)}.course-icon{font-size:32px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.chip{background:#eaf3fb;color:#15558a;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:700}.notice{background:#fff8e6;border:1px solid #f4dfaa;color:#77540b;padding:13px 15px;border-radius:11px;margin:18px 0;font-size:13px}.hidden{display:none!important}.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}.field input,.field select{width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:9px;background:white}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.message{padding:11px 13px;border-radius:9px;margin:12px 0;font-size:13px}.success{background:#eaf8f0;color:#12643b}.error{background:#fff0ef;color:#a32c23}.small{font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{background:white;border:1px solid var(--line);padding:15px;border-radius:13px}.stat strong{font-size:24px;display:block}.stat span{font-size:12px;color:var(--muted)}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:680px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:11px;color:var(--muted);text-transform:uppercase}.status{background:#fff4d6;color:#865b00;border-radius:20px;padding:4px 9px;font-size:11px;font-weight:800}.quiztop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.progress{height:7px;background:#e8eef5;border-radius:20px;overflow:hidden;margin:17px 0}.progress div{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0}.question{font-size:21px;margin:24px 0}.option{display:flex;gap:11px;padding:13px;border:1px solid var(--line);border-radius:11px;margin:9px 0;cursor:pointer}.option.selected{border-color:var(--blue);background:#eef6fd}.option.correct{border-color:var(--green);background:#effaf3}.option.wrong{border-color:var(--red);background:#fff1f0}.option input{margin-top:4px}.quizactions{display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-top:20px}.footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}@media(max-width:700px){.hero{grid-template-columns:1fr}.hero-art{display:none}.grid,.formgrid{grid-template-columns:1fr}.wrap{padding:18px 12px 40px}.card,.panel{padding:16px}header{padding:13px}.stats{gap:7px}.stat{padding:11px}}
+</style></head><body>
+<header><div class="brand"><div class="mark">R</div><div><h1>RYUHMO LEARNING PORTAL</h1><p>CCC · Office Automation & IT Assistant</p></div></div><nav class="nav"><button onclick="page('home')">Home</button><button onclick="page('practice')">Practice</button><button onclick="page('register')">Register</button><button onclick="page('login')">Login</button></nav></header>
+<main class="wrap">
+<section id="home"><div class="hero"><div><div class="eyebrow">Student learning platform</div><h2>Learn with confidence.<br>Prepare for success.</h2><p>Explore CCC and OAITA practice tests, submit your course registration and access your learning portal.</p><div class="actions"><button class="btn light" onclick="page('register')">Apply for admission →</button><button class="btn outline" onclick="page('practice')">Explore practice tests</button></div></div><div class="hero-art">🎓</div></div>
+<div class="head"><h2>Choose your programme</h2><span class="small">Two available courses</span></div><div class="grid">
+<article class="card"><div class="course-icon">💻</div><h3>Course on Computer Concepts (CCC)</h3><p>Computer fundamentals, office applications, internet use, digital services and cybersecurity.</p><div class="chips"><span class="chip">Computer fundamentals</span><span class="chip">Digital literacy</span></div><button class="btn primary" onclick="page('register','CCC')">Register for CCC</button></article>
+<article class="card"><div class="course-icon">📚</div><h3>Office Automation & IT Assistant (OAITA)</h3><p>Office automation, word processing, spreadsheets, presentations and IT fundamentals.</p><div class="chips"><span class="chip">Office tools</span><span class="chip">Practical skills</span></div><button class="btn primary" onclick="page('register','OAITA')">Register for OAITA</button></article></div>
+<div class="notice"><b>Registration:</b> Applications remain pending until reviewed by an administrator. A unique mobile number is required. No Gmail or SMS OTP is required.</div></section>
+<section id="register" class="hidden"><div class="head"><h2>Student registration</h2><span class="chip">Public application</span></div><div class="panel" style="max-width:760px"><p class="muted">Submit your details for administrator review.</p><form id="regForm"><div class="formgrid"><div class="field"><label>Full name</label><input id="rName" required maxlength="100" autocomplete="name"></div><div class="field"><label>Mobile number</label><input id="rPhone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number"></div><div class="field"><label>Application / registration number</label><input id="rNumber" required maxlength="40"></div><div class="field"><label>Course</label><select id="rCourse" required><option value="">Choose course</option><option>CCC</option><option>OAITA</option></select></div></div><div id="regMsg"></div><button class="btn primary" id="regBtn">Submit registration</button><p class="small">No Gmail or OTP required. Please ensure your details are correct.</p></form></div></section>
+<section id="login" class="hidden"><div class="head"><h2>Portal login</h2></div><div class="panel" style="max-width:520px"><p class="muted">Students use their registration number. Administrators use their email address.</p><form id="loginForm"><div class="field"><label>Registration number / administrator email</label><input id="loginId" required autocomplete="username"></div><div class="field"><label>Password</label><input id="loginPass" type="password" required autocomplete="current-password"></div><div id="loginMsg"></div><button class="btn primary" id="loginBtn">Sign in</button></form><p class="small">A student's initial password is their registration number. A password change is required after first login.</p></div></section>
+<section id="dashboard" class="hidden"><div class="head"><div><h2 id="dashTitle">Dashboard</h2><p id="welcome" class="muted"></p></div><div class="right"><button class="btn outline" onclick="page('practice')">Practice</button><button class="btn danger" onclick="logout()">Sign out</button></div></div>
+<div id="adminPanel" class="hidden"><div class="stats"><div class="stat"><strong id="nPending">0</strong><span>Pending</span></div><div class="stat"><strong id="nApproved">0</strong><span>Approved</span></div><div class="stat"><strong id="nRejected">0</strong><span>Rejected</span></div></div><div class="panel"><div class="head" style="margin-top:0"><h2>Registration applications</h2><button class="btn outline" onclick="loadRequests()">Refresh</button></div><div id="adminMsg"></div><div class="tablewrap"><table><thead><tr><th>Student</th><th>Registration</th><th>Phone</th><th>Course</th><th>Status</th><th>Action</th></tr></thead><tbody id="requestRows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div></div></div>
+<div id="studentPanel" class="panel hidden"><h3>Welcome to your learning portal</h3><p id="studentCourse" class="muted"></p><button class="btn primary" onclick="page('practice')">Start practising</button></div>
+<div id="passwordPanel" class="panel hidden" style="max-width:560px"><h3>Change your initial password</h3><form id="passwordForm"><div class="field"><label>New password (minimum 8 characters)</label><input id="newPass" type="password" minlength="8" required></div><div class="field"><label>Confirm password</label><input id="confirmPass" type="password" minlength="8" required></div><div id="passMsg"></div><button class="btn primary">Update password</button></form></div></section>
+<section id="practice" class="hidden"><div class="head"><h2>Practice tests</h2><span class="small">Sample question bank</span></div><div id="practiceChoices" class="grid"><article class="card"><div class="course-icon">💻</div><h3>CCC — Sample Test</h3><p>Computer concepts, internet, digital payments and office tools.</p><div class="chips"><span class="chip">10 questions</span><span class="chip">10 minutes</span></div><button class="btn primary" onclick="startTest('CCC')">Begin CCC test</button></article><article class="card"><div class="course-icon">📝</div><h3>OAITA — Sample Test</h3><p>Word processing, spreadsheets, presentations and computer basics.</p><div class="chips"><span class="chip">10 questions</span><span class="chip">10 minutes</span></div><button class="btn primary" onclick="startTest('OAITA')">Begin OAITA test</button></article></div>
+<div id="quiz" class="panel hidden"><div class="quiztop"><div><span class="chip" id="courseTag"></span><h2 id="quizTitle"></h2></div><b>Time: <span id="timer">10:00</span></b></div><div class="progress"><div id="progressBar"></div></div><div class="quiztop"><span class="small" id="questionCounter"></span><span class="small" id="answeredCount"></span></div><h3 class="question" id="questionText"></h3><div id="options"></div><div id="answerNote" class="notice hidden"></div><div class="quizactions"><button class="btn outline" id="prevBtn" onclick="prevQ()">Previous</button><button class="btn outline" id="reviewBtn" onclick="markReview()">Mark for review</button><button class="btn primary" id="nextBtn" onclick="nextQ()">Next</button><button class="btn primary hidden" id="submitBtn" onclick="submitTest()">Submit test</button></div></div>
+<div id="results" class="panel hidden"><h2>Test completed</h2><div class="stats"><div class="stat"><strong id="score">0/10</strong><span>Correct</span></div><div class="stat"><strong id="percent">0%</strong><span>Score</span></div><div class="stat"><strong id="wrong">0</strong><span>Incorrect / unanswered</span></div></div><p id="resultMsg"></p><div id="reviewList"></div><button class="btn primary" onclick="resetPractice()">Choose another test</button></div></section>
+</main><footer class="footer">© <span id="year"></span> Ryuhmo Learning Portal · CCC & OAITA<br>Practice questions are learning resources, not official examination papers.</footer>
 <script>
+const SUPABASE_URL="https://dwnlnhxrbjlaghwguejy.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="PASTE_YOUR_SB_PUBLISHABLE_KEY_HERE";
+const configured=SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_")&&window.supabase;
+const sb=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
+function msg(id,t,ok=false){const e=document.getElementById(id);e.className="message "+(ok?"success":"error");e.textContent=t}
+function page(id,course){["home","register","login","dashboard","practice"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));if(id==="register"&&course)document.getElementById("rCourse").value=course;if(id==="practice")resetPractice();window.scrollTo({top:0,behavior:"smooth"})}
+function ready(){if(!sb){alert("Add your Supabase sb_publishable_ key in the website code before publishing.");return false}return true}
+document.getElementById("regForm").addEventListener("submit",async e=>{e.preventDefault();if(!ready())return;const b=document.getElementById("regBtn");b.disabled=true;b.textContent="Submitting…";try{const {data,error}=await sb.functions.invoke("submit-registration",{body:{full_name:rName.value.trim(),registration_number:rNumber.value.trim(),phone_number:rPhone.value.trim(),course_code:rCourse.value}});if(error)throw error;if(!data?.success)throw Error(data?.error||"Submission failed");msg("regMsg",data.message+" Reference: "+data.request_id,true);e.target.reset()}catch(x){msg("regMsg",x.message||"Unable to submit")}finally{b.disabled=false;b.textContent="Submit registration"}});
+function authEmail(v){v=v.trim();return v.includes("@")?v:v.toLowerCase()+"@students.ryuhmotools.in"}
+document.getElementById("loginForm").addEventListener("submit",async e=>{e.preventDefault();if(!ready())return;const b=document.getElementById("loginBtn");b.disabled=true;try{const {data,error}=await sb.auth.signInWithPassword({email:authEmail(loginId.value),password:loginPass.value});if(error)throw error;await dashboard(data.user)}catch(x){msg("loginMsg",x.message||"Login failed")}finally{b.disabled=false}});
+async function dashboard(user){const {data:p,error}=await sb.from("profiles").select("full_name,role,must_change_password").eq("id",user.id).single();if(error||!p){await sb.auth.signOut();page("login");msg("loginMsg","Profile unavailable. Contact administrator.");return}page("dashboard");dashTitle.textContent=p.role==="student"?"Student dashboard":"Administration dashboard";welcome.textContent="Signed in as "+p.full_name;adminPanel.classList.toggle("hidden",!["admin","super_admin"].includes(p.role));studentPanel.classList.toggle("hidden",p.role!=="student"||p.must_change_password);passwordPanel.classList.toggle("hidden",p.role!=="student"||!p.must_change_password);if(["admin","super_admin"].includes(p.role))loadRequests();if(p.role==="student"){const {data:en}=await sb.from("student_enrollments").select("courses(code,name)").eq("user_id",user.id).maybeSingle();studentCourse.textContent=en?.courses?.name||en?.courses?.code||"Enrolled course"}}
+async function logout(){if(sb)await sb.auth.signOut();page("home")}
+async function loadRequests(){const body=document.getElementById("requestRows");body.innerHTML="<tr><td colspan='6'>Loading…</td></tr>";const {data,error}=await sb.from("registration_requests").select("id,full_name,registration_number,phone_number,status,created_at,courses(code)").order("created_at",{ascending:false});if(error){body.innerHTML="<tr><td colspan='6'>Could not load. Check the admin SELECT policy in Supabase.</td></tr>";msg("adminMsg",error.message);return}nPending.textContent=data.filter(x=>x.status==="pending").length;nApproved.textContent=data.filter(x=>x.status==="approved").length;nRejected.textContent=data.filter(x=>x.status==="rejected").length;body.innerHTML="";data.forEach(r=>{const tr=document.createElement("tr");[r.full_name,r.registration_number,r.phone_number,r.courses?.code||"—",r.status].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td)});const td=document.createElement("td");if(r.status==="pending"){const a=document.createElement("button");a.className="btn primary";a.textContent="Approve";a.onclick=()=>approve(r.id);const rej=document.createElement("button");rej.className="btn danger";rej.textContent="Reject";rej.style.marginLeft="5px";rej.onclick=()=>reject(r.id);td.append(a,rej)}else td.textContent="—";tr.appendChild(td);body.appendChild(tr)});if(!data.length)body.innerHTML="<tr><td colspan='6'>No applications found.</td></tr>"}
+async function approve(id){if(!confirm("Approve this student and create their account?"))return;const {data,error}=await sb.functions.invoke("approve-registration",{body:{request_id:id}});if(error){msg("adminMsg",error.message);return}if(!data?.success){msg("adminMsg",data?.error||"Approval failed");return}msg("adminMsg","Student approved. Initial password: "+data.student.initial_password,true);loadRequests()}
+async function reject(id){if(!confirm("Reject this application?"))return;const {error}=await sb.from("registration_requests").update({status:"rejected",reviewed_at:new Date().toISOString()}).eq("id",id).eq("status","pending");if(error){msg("adminMsg",error.message);return}msg("adminMsg","Application rejected.",true);loadRequests()}
+document.getElementById("passwordForm").addEventListener("submit",async e=>{e.preventDefault();const a=newPass.value,b=confirmPass.value;if(a!==b){msg("passMsg","Passwords do not match");return}const {error}=await sb.auth.updateUser({password:a});if(error){msg("passMsg",error.message);return}const {data:{user}}=await sb.auth.getUser();const {error:updateError}=await sb.from("profiles").update({must_change_password:false}).eq("id",user.id);if(updateError){msg("passMsg","Password changed, but profile update failed. Contact administrator.");return}msg("passMsg","Password updated successfully.",true);dashboard(user)});
 const questionBank = {
  CCC: [
   {q:"What does CPU stand for?",o:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],a:0,e:"CPU means Central Processing Unit. It executes instructions and processes data."},
@@ -238,126 +65,14 @@ const questionBank = {
   {q:"What does the spell-check tool help identify?",o:["Low battery","Potential spelling errors","Internet speed","Monitor resolution"],a:1,e:"Spell-check highlights possible spelling errors in a document."}
  ]
 };
-
-let course="CCC", questions=[], current=0, answers={}, reviewed={};
-let seconds=600, timerId=null, submitted=false, reviewMode=false;
+let course="CCC",questions=[],current=0,answers={},marked={},seconds=600,timer=null,submitted=false;
 const $=id=>document.getElementById(id);
-
-function showSection(id){
- ["home","courses","quiz","results"].forEach(s=>$(s).classList.toggle("hidden",s!==id));
- window.scrollTo({top:0,behavior:"smooth"});
-}
-function showHome(){stopTimer();showSection("home");updateStats();}
-function showCourses(){stopTimer();showSection("courses");}
-function updateStats(){
- let history=[];
- try{history=JSON.parse(localStorage.getItem("ryuhmoPracticeHistory")||"[]")}catch(e){}
- $("attemptCount").textContent=history.length;
- $("bestScore").textContent=history.length?Math.max(...history.map(x=>x.percent))+"%":"—";
-}
-function startTest(selectedCourse){
- stopTimer();
- course=selectedCourse;
- // Select 10 questions, rotating the bank if needed.
- const bank=questionBank[course];
- questions=bank.slice(0,10).sort(()=>Math.random()-.5);
- current=0;answers={};reviewed={};seconds=600;submitted=false;reviewMode=false;
- $("courseTag").textContent=course;
- $("quizTitle").textContent=course+" Sample Test";
- $("answerNote").classList.add("hidden");
- $("submitBtn").classList.add("hidden");
- $("nextBtn").classList.remove("hidden");
- showSection("quiz");renderQuestion();updateTimer();
- timerId=setInterval(()=>{
-   seconds--;
-   updateTimer();
-   if(seconds<=0)submitTest();
- },1000);
-}
-function stopTimer(){if(timerId){clearInterval(timerId);timerId=null}}
-function updateTimer(){
- $("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+(seconds%60).toString().padStart(2,"0");
-}
-function renderQuestion(){
- const item=questions[current];
- $("questionCounter").textContent="Question "+(current+1)+" of "+questions.length+(reviewed[current]?" • Marked for review":"");
- $("questionText").textContent=item.q;
- $("progressBar").style.width=((current+1)/questions.length*100)+"%";
- $("answeredCount").textContent="Answered: "+Object.keys(answers).length;
- $("prevBtn").disabled=current===0;
- $("reviewBtn").textContent=reviewed[current]?"Remove review mark":"Mark for review";
- $("options").innerHTML="";
- $("answerNote").classList.add("hidden");
- item.o.forEach((option,i)=>{
-  const label=document.createElement("label");
-  label.className="option"+(answers[current]===i?" selected":"");
-  const radio=document.createElement("input");
-  radio.type="radio";radio.name="answer";radio.checked=answers[current]===i;
-  radio.disabled=submitted;
-  radio.addEventListener("change",()=>{
-    answers[current]=i;renderQuestion();
-  });
-  const span=document.createElement("span");
-  span.textContent=String.fromCharCode(65+i)+". "+option;
-  label.append(radio,span);
-  if(submitted){
-   if(i===item.a)label.classList.add("correct");
-   else if(answers[current]===i)label.classList.add("wrong");
-  }
-  $("options").appendChild(label);
- });
- $("nextBtn").textContent=current===questions.length-1?"Finish questions →":"Next →";
- if(submitted){
-   $("nextBtn").classList.add("hidden");
-   $("submitBtn").classList.add("hidden");
-   $("answerNote").classList.remove("hidden");
-   $("answerNote").textContent=(answers[current]===item.a?"Correct. ":"Incorrect or unanswered. ")+"Explanation: "+item.e;
- } else {
-   $("nextBtn").classList.remove("hidden");
-   $("submitBtn").classList.toggle("hidden",current!==questions.length-1);
- }
-}
-function previousQuestion(){if(current>0){current--;renderQuestion()}}
-function nextQuestion(){
- if(current<questions.length-1){current++;renderQuestion()}
- else submitTest();
-}
-function toggleReview(){reviewed[current]=!reviewed[current];renderQuestion()}
-function submitTest(){
- if(submitted)return;
- if(!confirm("Submit your test now? You cannot change answers afterward."))return;
- submitted=true;stopTimer();
- const correct=questions.filter((q,i)=>answers[i]===q.a).length;
- const percent=Math.round(correct/questions.length*100);
- $("resultCourse").textContent=course+" Sample Test";
- $("scoreValue").textContent=correct+"/"+questions.length;
- $("percentValue").textContent=percent+"%";
- $("wrongValue").textContent=questions.length-correct;
- $("resultMessage").textContent=percent>=80?"Excellent work! Keep practising.":percent>=50?"Good effort. Review incorrect answers and try again.":"Keep learning. Review the explanations and practise again.";
- let history=[];
- try{history=JSON.parse(localStorage.getItem("ryuhmoPracticeHistory")||"[]")}catch(e){}
- history.push({course,percent,correct,date:new Date().toISOString()});
- try{localStorage.setItem("ryuhmoPracticeHistory",JSON.stringify(history))}catch(e){}
- updateStats();
- $("reviewList").innerHTML="";
- questions.forEach((q,i)=>{
-  const box=document.createElement("div");box.className="panel";
-  const title=document.createElement("h3");title.textContent=(i+1)+". "+q.q;
-  const result=document.createElement("p");
-  result.textContent="Your answer: "+(answers[i]===undefined?"Not answered":q.o[answers[i]])+" | Correct answer: "+q.o[q.a];
-  result.style.color=answers[i]===q.a?"#15803d":"#dc2626";
-  const explanation=document.createElement("p");explanation.className="small";explanation.textContent="Explanation: "+q.e;
-  box.append(title,result,explanation);$("reviewList").appendChild(box);
- });
- showSection("results");
-}
-function reviewAnswers(){
- submitted=true;reviewMode=true;current=0;
- showSection("quiz");renderQuestion();
- $("quizTitle").textContent=course+" — Answer Review";
-}
+function stop(){if(timer){clearInterval(timer);timer=null}}
+function tick(){$("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+String(seconds%60).padStart(2,"0")}
+function startTest(c){stop();course=c;questions=questionBank[c].slice(0,10).sort(()=>Math.random()-.5);current=0;answers={};marked={};seconds=600;submitted=false;$("courseTag").textContent=c;$("quizTitle").textContent=c+" sample test";$("practiceChoices").classList.add("hidden");$("results").classList.add("hidden");$("quiz").classList.remove("hidden");render();tick();timer=setInterval(()=>{seconds--;tick();if(seconds<=0)submitTest(true)},1000)}
+function render(){const q=questions[current];$("questionCounter").textContent=`Question ${current+1} of ${questions.length}${marked[current]?" · Marked":""}`;$("questionText").textContent=q.q;$("progressBar").style.width=((current+1)/questions.length*100)+"%";$("answeredCount").textContent="Answered: "+Object.keys(answers).length;$("prevBtn").disabled=current===0;$("reviewBtn").textContent=marked[current]?"Remove mark":"Mark for review";$("options").innerHTML="";q.o.forEach((v,i)=>{const l=document.createElement("label");l.className="option"+(answers[current]===i?" selected":"");const r=document.createElement("input");r.type="radio";r.name="answer";r.checked=answers[current]===i;r.disabled=submitted;r.onchange=()=>{answers[current]=i;render()};const s=document.createElement("span");s.textContent=String.fromCharCode(65+i)+". "+v;l.append(r,s);if(submitted){if(i===q.a)l.classList.add("correct");else if(answers[current]===i)l.classList.add("wrong")}$("options").appendChild(l)});$("nextBtn").classList.toggle("hidden",submitted||current===questions.length-1);$("submitBtn").classList.toggle("hidden",submitted||current!==questions.length-1);$("nextBtn").textContent="Next";$("answerNote").classList.toggle("hidden",!submitted);if(submitted)$("answerNote").textContent=(answers[current]===q.a?"Correct. ":"Incorrect or unanswered. ")+"Explanation: "+q.e}
+function prevQ(){if(current>0){current--;render()}}function nextQ(){if(current<questions.length-1){current++;render()}else submitTest()}function markReview(){marked[current]=!marked[current];render()}
+function submitTest(auto=false){if(submitted)return;if(!auto&&!confirm("Submit your test now?"))return;submitted=true;stop();const correct=questions.filter((q,i)=>answers[i]===q.a).length,p=Math.round(correct/questions.length*100);$("score").textContent=correct+"/"+questions.length;$("percent").textContent=p+"%";$("wrong").textContent=questions.length-correct;$("resultMsg").textContent=p>=80?"Excellent work!":p>=50?"Good effort. Keep practising.":"Keep learning and review the explanations.";reviewList.innerHTML="";questions.forEach((q,i)=>{const d=document.createElement("p");d.textContent=(i+1)+". "+q.q+" — Your answer: "+(answers[i]===undefined?"Not answered":q.o[answers[i]])+" | Correct: "+q.o[q.a]+". "+q.e;reviewList.appendChild(d)});$("quiz").classList.add("hidden");$("results").classList.remove("hidden")}
+function resetPractice(){stop();$("quiz").classList.add("hidden");$("results").classList.add("hidden");$("practiceChoices").classList.remove("hidden")}
 $("year").textContent=new Date().getFullYear();
-updateStats();
-</script>
-</body>
-</html>
+</script></body></html>
