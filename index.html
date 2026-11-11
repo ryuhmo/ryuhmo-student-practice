@@ -1,11 +1,51 @@
-from pathlib import Path
-import subprocess
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#102a43"><title>Ryuhmo Learning Portal</title><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><style>
+:root{--navy:#102a43;--blue:#1769aa;--cyan:#27a6b8;--ink:#172b4d;--muted:#62748a;--bg:#f3f7fb;--line:#e1e9f1;--green:#14804a;--red:#c0392b;--shadow:0 12px 35px #102a4310}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 Inter,system-ui,Segoe UI,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}header{background:linear-gradient(110deg,#102a43,#145b86);color:white;padding:15px max(18px,calc((100% - 1160px)/2));display:flex;align-items:center;justify-content:space-between;gap:15px;flex-wrap:wrap}.brand{display:flex;gap:12px;align-items:center}.mark{height:44px;width:44px;border-radius:13px;background:white;color:#145b86;display:grid;place-items:center;font-size:24px;font-weight:900}.brand h1{font-size:17px;margin:0}.brand p{margin:3px 0 0;color:#d4e6f5;font-size:12px}.nav{display:flex;gap:7px;flex-wrap:wrap}.nav button{background:#ffffff12;border:1px solid #ffffff45;color:white;border-radius:9px;padding:8px 12px}.wrap{max-width:1160px;margin:auto;padding:28px 18px 55px}.hero{background:linear-gradient(120deg,#102a43,#1769aa 70%,#27a6b8);color:white;border-radius:23px;padding:clamp(25px,5vw,50px);display:grid;grid-template-columns:1.5fr .6fr;align-items:center;gap:20px;box-shadow:var(--shadow)}.eyebrow{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:#b9e7f1}.hero h2{font-size:clamp(30px,5vw,47px);line-height:1.12;margin:12px 0}.hero p{color:#e0edf7;max-width:620px}.hero-art{text-align:center;font-size:100px}.btn{border:0;border-radius:10px;padding:11px 15px;font-weight:750}.primary{background:var(--blue);color:white}.light{background:white;color:var(--navy)}.outline{background:white;border:1px solid var(--line);color:var(--ink)}.danger{background:#fff0ef;color:var(--red);border:1px solid #ffd2ce}.btn:disabled{opacity:.5;cursor:not-allowed}.actions,.right{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:14px}.head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:30px 0 15px}.head h2{margin:0;font-size:22px}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.card,.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:21px;box-shadow:var(--shadow)}.card h3{margin:7px 0}.card p,.muted{color:var(--muted)}.course-icon{font-size:32px}.chips{display:flex;gap:7px;flex-wrap:wrap;margin:13px 0}.chip{background:#eaf3fb;color:#15558a;padding:5px 10px;border-radius:99px;font-size:12px;font-weight:700}.notice{background:#fff8e6;border:1px solid #f4dfaa;color:#77540b;padding:13px 15px;border-radius:11px;margin:18px 0;font-size:13px}.hidden{display:none!important}.field{margin:12px 0}.field label{display:block;font-size:13px;font-weight:750;margin-bottom:6px}.field input,.field select{width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:9px;background:white}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.message{padding:11px 13px;border-radius:9px;margin:12px 0;font-size:13px}.success{background:#eaf8f0;color:#12643b}.error{background:#fff0ef;color:#a32c23}.small{font-size:12px;color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{background:white;border:1px solid var(--line);padding:15px;border-radius:13px}.stat strong{font-size:24px;display:block}.stat span{font-size:12px;color:var(--muted)}.tablewrap{overflow:auto}table{border-collapse:collapse;width:100%;min-width:680px}th,td{text-align:left;padding:11px;border-bottom:1px solid var(--line);font-size:13px}th{font-size:11px;color:var(--muted);text-transform:uppercase}.status{background:#fff4d6;color:#865b00;border-radius:20px;padding:4px 9px;font-size:11px;font-weight:800}.quiztop{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}.progress{height:7px;background:#e8eef5;border-radius:20px;overflow:hidden;margin:17px 0}.progress div{height:100%;background:linear-gradient(90deg,var(--blue),var(--cyan));width:0}.question{font-size:21px;margin:24px 0}.option{display:flex;gap:11px;padding:13px;border:1px solid var(--line);border-radius:11px;margin:9px 0;cursor:pointer}.option.selected{border-color:var(--blue);background:#eef6fd}.option.correct{border-color:var(--green);background:#effaf3}.option.wrong{border-color:var(--red);background:#fff1f0}.option input{margin-top:4px}.quizactions{display:flex;justify-content:space-between;gap:9px;flex-wrap:wrap;margin-top:20px}.footer{text-align:center;padding:25px;color:var(--muted);font-size:12px}@media(max-width:700px){.hero{grid-template-columns:1fr}.hero-art{display:none}.grid,.formgrid{grid-template-columns:1fr}.wrap{padding:18px 12px 40px}.card,.panel{padding:16px}header{padding:13px}.stats{gap:7px}.stat{padding:11px}}
 
-src = Path("/mnt/data/ryuhmo-learning-portal-professional-student-dashboard.html")
-out = Path("/mnt/data/ryuhmo-learning-portal-iase-inspired-theme.html")
-html = src.read_text(encoding="utf-8")
+/* Professional student LMS dashboard */
+.student-shell{display:grid;grid-template-columns:218px minmax(0,1fr);gap:22px;align-items:start;margin-top:8px}
+.student-sidebar{background:#102a43;border-radius:18px;padding:18px 13px;color:#fff;min-height:620px;position:sticky;top:18px}
+.sidebar-label{font-size:10px;letter-spacing:.13em;color:#a9c6dc;font-weight:800;padding:7px 10px 14px}
+.side-link{display:flex;align-items:center;gap:11px;width:100%;text-align:left;border:0;background:transparent;color:#dce9f4;padding:12px 11px;border-radius:10px;margin:3px 0;font-weight:650}
+.side-link span{font-size:19px;width:22px;text-align:center}
+.side-link:hover,.side-link.active{background:#ffffff19;color:#fff}
+.sidebar-note{margin:30px 5px 0;padding:13px;background:#ffffff12;border:1px solid #ffffff20;border-radius:12px;font-size:12px;color:#e4eef6}
+.sidebar-note p{margin:6px 0 0;color:#c5d7e6;line-height:1.5}
+.student-main{min-width:0}
+.student-welcome{display:flex;justify-content:space-between;align-items:center;gap:15px;padding:24px 27px;background:linear-gradient(115deg,#eaf4fc,#f6fbff);border:1px solid #dceaf5;border-radius:17px}
+.student-kicker{font-size:10px;letter-spacing:.14em;font-weight:850;color:#1769aa}
+.student-welcome h2{margin:5px 0 2px;font-size:25px;color:#102a43}
+.student-welcome p{margin:0;color:#62748a;font-size:13px}
+.welcome-symbol{width:64px;height:64px;border-radius:18px;background:#fff;display:grid;place-items:center;font-size:34px;box-shadow:0 6px 20px #102a4310}
+.course-banner{display:flex;align-items:center;gap:15px;margin-top:16px;padding:18px 20px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:var(--shadow)}
+.course-banner-icon{width:48px;height:48px;flex:none;display:grid;place-items:center;border-radius:13px;background:#eaf3fb;font-size:25px}
+.course-banner-copy{min-width:0;flex:1}
+.course-banner-copy>span{font-size:10px;letter-spacing:.1em;color:#62748a;font-weight:800}
+.course-banner-copy h3{margin:3px 0;font-size:17px}
+.course-banner-copy p{margin:0;color:#62748a;font-size:12px}
+.course-status{font-size:11px;font-weight:750;color:#1769aa;background:#eaf3fb;padding:7px 10px;border-radius:30px}
+.student-section-heading{display:flex;justify-content:space-between;align-items:end;margin:25px 0 12px}
+.student-section-heading h2{font-size:19px;margin:0}
+.student-section-heading p{font-size:12px;color:#718198;margin:3px 0 0}
+.student-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.student-stat{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:13px;padding:15px;min-width:0}
+.student-stat-icon{width:39px;height:39px;display:grid;place-items:center;background:#f0f6fc;border-radius:11px;font-size:19px;flex:none}
+.student-stat strong{display:block;font-size:21px;line-height:1.2;color:#102a43}
+.student-stat small{font-size:11px;color:#718198}
+.student-activity-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}
+.student-activity-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;background:#fff;border:1px solid var(--line);border-radius:15px;padding:18px;min-height:205px;box-shadow:0 7px 22px #102a4308}
+.activity-icon{width:43px;height:43px;display:grid;place-items:center;border-radius:12px;font-size:22px}
+.practice-icon{background:#eaf3ff}.tutorial-icon{background:#eaf8f1}.questions-icon{background:#fff5e8}.course-icon-box{background:#f1edff}
+.student-activity-card h3{font-size:15px;margin:3px 0}
+.student-activity-card p{font-size:12px;color:#718198;margin:0 0 5px;line-height:1.5;flex:1}
+.student-activity-card .btn{font-size:12px;padding:9px 12px}
+.student-material-panel{margin-top:18px}
+.student-footer-note{display:flex;gap:11px;align-items:center;margin-top:17px;padding:13px 15px;background:#f0f6fb;border-radius:12px;color:#52677c;font-size:12px}
+.student-footer-note>span{font-size:22px}
+.student-footer-note p{margin:0}
+@media(max-width:850px){.student-shell{grid-template-columns:1fr}.student-sidebar{position:static;min-height:0;display:flex;gap:5px;overflow:auto;padding:9px}.sidebar-label,.sidebar-note{display:none}.side-link{white-space:nowrap;width:auto;flex:none;padding:10px}.student-stats{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:560px){.student-welcome{padding:18px}.student-welcome h2{font-size:21px}.welcome-symbol{width:50px;height:50px;font-size:27px}.student-stats{grid-template-columns:1fr}.student-stat{padding:11px}.student-activity-grid{grid-template-columns:1fr}.course-status{display:none}.course-banner{padding:14px}.student-section-heading{margin-top:21px}}
 
-theme = r'''
+
 /* IASE Mizoram-inspired institutional palette: emblem navy, ivory and restrained brick accent */
 :root{
   --navy:#09243b;
@@ -45,11 +85,343 @@ a{color:#8b4548}
 .student-footer-note>span{color:#8b4548}
 input:focus,select:focus,textarea:focus{border-color:#8b4548;outline-color:#8b4548}
 .badge,.chip{border-color:#ded8ce}
-'''
-html = html.replace("</style>", theme + "\n</style>", 1)
-out.write_text(html, encoding="utf-8")
-script = html.rsplit("<script>",1)[-1].split("</script>",1)[0]
-Path("/tmp/ryuhmo-theme-check.js").write_text(script,encoding="utf-8")
-check=subprocess.run(["node","--check","/tmp/ryuhmo-theme-check.js"],capture_output=True,text=True)
-print("Created:",out.name, "|",out.stat().st_size,"bytes")
-print("JavaScript syntax:", "PASS" if check.returncode==0 else check.stderr)
+
+</style></head><body>
+<header><div class="brand"><div class="mark">R</div><div><h1>RYUHMO LEARNING PORTAL</h1><p>CCC · Office Automation & IT Assistant</p></div></div><nav class="nav"><button onclick="page('home')">Home</button><button onclick="page('register')">Register</button><button onclick="page('studentLogin')">Student Login</button><button onclick="page('adminLogin')">Admin Login</button></nav></header>
+<main class="wrap">
+<section id="home"><div class="hero"><div><div class="eyebrow">Student learning platform</div><h2>Learn with confidence.<br>Prepare for success.</h2><p>Explore CCC and OAITA practice tests, submit your course registration and access your learning portal.</p><div class="actions"><button class="btn light" onclick="page('register')">Apply for admission →</button><button class="btn outline" onclick="page('studentLogin')">Student Login</button><button class="btn outline" onclick="page('adminLogin')">Admin Login</button></div></div><div class="hero-art">🎓</div></div>
+<div class="head"><h2>Choose your programme</h2><span class="small">Two available courses</span></div><div class="grid">
+<article class="card"><div class="course-icon">💻</div><h3>Course on Computer Concepts (CCC)</h3><p>Computer fundamentals, office applications, internet use, digital services and cybersecurity.</p><div class="chips"><span class="chip">Computer fundamentals</span><span class="chip">Digital literacy</span></div><button class="btn primary" onclick="page('register','CCC')">Register for CCC</button></article>
+<article class="card"><div class="course-icon">📚</div><h3>Office Automation & IT Assistant (OAITA)</h3><p>Office automation, word processing, spreadsheets, presentations and IT fundamentals.</p><div class="chips"><span class="chip">Office tools</span><span class="chip">Practical skills</span></div><button class="btn primary" onclick="page('register','OAITA')">Register for OAITA</button></article></div>
+<div class="notice"><b>Registration:</b> Applications remain pending until reviewed by an administrator. A unique mobile number is required. No Gmail or SMS OTP is required.</div></section>
+<section id="register" class="hidden"><div class="head"><h2>Student registration</h2><span class="chip">Public application</span></div><div class="panel" style="max-width:760px"><p class="muted">Submit your details for administrator review.</p><form id="regForm"><div class="formgrid"><div class="field"><label>Full name</label><input id="rName" required maxlength="100" autocomplete="name"></div><div class="field"><label>Mobile number</label><input id="rPhone" required inputmode="tel" autocomplete="tel" placeholder="10-digit mobile number"></div><div class="field"><label>Application / registration number</label><input id="rNumber" required maxlength="40"></div><div class="field"><label>Course</label><select id="rCourse" required><option value="">Choose course</option><option>CCC</option><option>OAITA</option></select></div></div><div id="regMsg"></div><button class="btn primary" id="regBtn">Submit registration</button><p class="small">No Gmail or OTP required. Please ensure your details are correct.</p></form></div></section>
+<section id="studentLogin" class="hidden"><div class="head"><h2>Student Login</h2></div><div class="panel" style="max-width:520px"><p class="muted">Sign in using your approved registration number and password.</p><form id="studentLoginForm"><div class="field"><label>Registration number</label><input id="studentLoginId" required autocomplete="username"></div><div class="field"><label>Password</label><input id="studentLoginPass" type="password" required autocomplete="current-password"></div><div id="studentLoginMsg"></div><button class="btn primary" id="studentLoginBtn">Student Sign in</button></form><p class="small">After approval, your initial password is your registration number. You will be asked to change it on first login.</p><p class="small"><a href="#" onclick="page('adminLogin');return false">Administrator? Go to Admin Login</a></p></div></section>
+<section id="adminLogin" class="hidden"><div class="head"><h2>Administrator Login</h2></div><div class="panel" style="max-width:520px"><p class="muted">For Admin and Super Admin accounts only.</p><form id="adminLoginForm"><div class="field"><label>Administrator email</label><input id="adminLoginId" type="email" required autocomplete="username"></div><div class="field"><label>Password</label><input id="adminLoginPass" type="password" required autocomplete="current-password"></div><div id="adminLoginMsg"></div><button class="btn primary" id="adminLoginBtn">Admin Sign in</button></form><p class="small"><a href="#" onclick="page('studentLogin');return false">Student? Go to Student Login</a></p></div></section>
+<section id="dashboard" class="hidden"><div class="head"><div><h2 id="dashTitle">Dashboard</h2><p id="welcome" class="muted"></p></div><div class="right"><button class="btn outline" onclick="page('practice')">Practice</button><button class="btn danger" onclick="logout()">Sign out</button></div></div>
+<div id="adminPanel" class="hidden"><div class="stats"><div class="stat"><strong id="nPending">0</strong><span>Pending</span></div><div class="stat"><strong id="nApproved">0</strong><span>Approved</span></div><div class="stat"><strong id="nRejected">0</strong><span>Rejected</span></div></div><div class="panel"><div class="head" style="margin-top:0"><h2>Registration applications</h2><button class="btn outline" onclick="loadRequests()">Refresh</button></div><div id="adminMsg"></div><div class="tablewrap"><table><thead><tr><th>Student</th><th>Registration</th><th>Phone</th><th>Course</th><th>Status</th><th>Action</th></tr></thead><tbody id="requestRows"><tr><td colspan="6">Loading…</td></tr></tbody></table></div></div></div>
+<div id="contentAdmin" class="hidden">
+<div class="head"><h2>Learning content management</h2><span class="chip">Admin workspace</span></div>
+<div class="grid">
+<div class="panel">
+<h3 id="qFormTitle">Add practice question</h3>
+<form id="questionForm">
+<div class="field"><label>Course</label><select id="qCourse" required><option value="CCC">CCC</option><option value="OAITA">OAITA</option></select></div>
+<div class="field"><label>Chapter / topic</label><input id="qTopic" required maxlength="120" placeholder="e.g. Computer Fundamentals"></div>
+<div class="field"><label>Question</label><textarea id="qText" required rows="3" style="width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:9px"></textarea></div>
+<div class="field"><label>Option A</label><input id="qA" required></div><div class="field"><label>Option B</label><input id="qB" required></div><div class="field"><label>Option C</label><input id="qC" required></div><div class="field"><label>Option D</label><input id="qD" required></div>
+<div class="field"><label>Correct answer</label><select id="qCorrect"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select></div>
+<div class="field"><label>Explanation (optional)</label><textarea id="qExplanation" rows="2" style="width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:9px"></textarea></div>
+<label><input id="qPublished" type="checkbox" checked> Publish question for students</label><div id="qMsg"></div>
+<div class="actions"><button class="btn primary" type="submit" id="qSave">Save question</button><button class="btn outline" type="button" onclick="resetQuestionForm()">Clear</button></div>
+</form></div>
+<div class="panel">
+<h3 id="mFormTitle">Add learning material</h3>
+<form id="materialForm">
+<div class="field"><label>Course</label><select id="mCourse"><option value="CCC">CCC</option><option value="OAITA">OAITA</option></select></div>
+<div class="field"><label>Title</label><input id="mTitle" required maxlength="160"></div>
+<div class="field"><label>Chapter / topic</label><input id="mTopic" maxlength="120" placeholder="Optional"></div>
+<div class="field"><label>Material type</label><select id="mType"><option value="text">Text lesson</option><option value="pdf">PDF document</option><option value="word">Word document (DOC/DOCX)</option></select></div>
+<div class="field"><label>Lesson text / description</label><textarea id="mContent" rows="5" style="width:100%;padding:12px;border:1px solid #cbd8e5;border-radius:9px" placeholder="Write lesson content or a short description"></textarea></div>
+<div class="field"><label>Attach file (PDF, DOC or DOCX; up to 20 MB)</label><input id="mFile" type="file" accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div>
+<label><input id="mPublished" type="checkbox" checked> Publish material for students</label><div id="mMsg"></div>
+<div class="actions"><button class="btn primary" type="submit" id="mSave">Save material</button><button class="btn outline" type="button" onclick="resetMaterialForm()">Clear</button></div>
+</form></div></div>
+<div class="panel" style="margin-top:16px">
+<h3>Bulk upload learning materials</h3>
+<p class="muted">Select several PDF, DOC or DOCX files at once. The portal will use each filename as its title and organise files under the selected course.</p>
+<div class="formgrid"><div class="field"><label>Course</label><select id="bulkMaterialCourse"><option value="CCC">CCC</option><option value="OAITA">OAITA</option></select></div><div class="field"><label>Default chapter / topic (optional)</label><input id="bulkMaterialTopic" placeholder="e.g. Chapter 1"></div></div>
+<div class="field"><label>Select multiple files (maximum 20 MB each)</label><input id="bulkMaterialFiles" type="file" multiple accept=".pdf,.doc,.docx"></div>
+<label><input id="bulkMaterialPublished" type="checkbox" checked> Publish uploaded materials for students</label>
+<div id="bulkMaterialMsg"></div><button class="btn primary" type="button" id="bulkMaterialBtn" onclick="uploadBulkMaterials()">Upload all materials</button>
+</div>
+<div class="panel" style="margin-top:16px">
+<h3>Import questions from PDF or Word</h3>
+<p class="muted">Upload a text-based PDF or DOCX containing MCQs. The importer will extract questions and options, then let you review and set the correct answers before saving. Use the format shown below.</p>
+<pre style="white-space:pre-wrap;background:#f4f7fb;padding:12px;border-radius:8px">1. What does CPU stand for?
+A. Central Processing Unit
+B. Computer Personal Unit
+C. Central Program Utility
+D. Control Processing User
+Answer: A
+Explanation: CPU executes instructions.</pre>
+<div class="formgrid"><div class="field"><label>Course</label><select id="importCourse"><option value="CCC">CCC</option><option value="OAITA">OAITA</option></select></div><div class="field"><label>Chapter / topic</label><input id="importTopic" placeholder="e.g. Computer Fundamentals" required></div></div>
+<div class="field"><label>Choose PDF or DOCX file</label><input id="questionImportFile" type="file" accept=".pdf,.docx,application/pdf,application/vnd.openxmlformats-officedocument.wordprocessingml.document"></div>
+<div id="questionImportMsg"></div><button class="btn outline" type="button" id="parseQuestionsBtn" onclick="parseQuestionImport()">Read and preview questions</button>
+<div id="questionImportPreview"></div>
+</div>
+<div class="panel" style="margin-top:16px"><div class="head" style="margin-top:0"><h3>Manage questions</h3><button class="btn outline" onclick="loadContentAdmin()">Refresh</button></div><div class="tablewrap"><table><thead><tr><th>Course</th><th>Topic</th><th>Question</th><th>Published</th><th>Actions</th></tr></thead><tbody id="questionRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></div>
+<div class="panel" style="margin-top:16px"><h3>Manage learning materials</h3><div class="tablewrap"><table><thead><tr><th>Course</th><th>Title</th><th>Type</th><th>Published</th><th>Actions</th></tr></thead><tbody id="materialRows"><tr><td colspan="5">Loading…</td></tr></tbody></table></div></div>
+</div>
+<div id="studentPanel" class="hidden student-shell">
+  <aside class="student-sidebar">
+    <div class="sidebar-label">LEARNING MENU</div>
+    <button class="side-link active" onclick="studentSection('overview',this)"><span>⌂</span> Overview</button>
+    <button class="side-link" onclick="page('practice')"><span>▤</span> Practice tests</button>
+    <button class="side-link" onclick="showStudentActivity('tutorials')"><span>▣</span> Tutorials & materials</button>
+    <button class="side-link" onclick="studentSection('courseInfo',this)"><span>▱</span> My course</button>
+    <div class="sidebar-note"><b>Study tip</b><p>Study one topic at a time, then test what you have learned.</p></div>
+  </aside>
+  <div class="student-main">
+    <div class="student-welcome">
+      <div><div class="student-kicker">STUDENT LEARNING SPACE</div><h2>Welcome back!</h2><p>Continue learning and keep building your skills.</p></div>
+      <div class="welcome-symbol">🎓</div>
+    </div>
+    <section class="course-banner" id="courseInfo">
+      <div class="course-banner-icon">📘</div>
+      <div class="course-banner-copy"><span>YOUR ENROLLED COURSE</span><h3 id="studentCourse">Checking your enrolment…</h3><p id="studentCourseSummary">Your course information will appear here.</p></div>
+      <span class="course-status">My course</span>
+    </section>
+    <div class="student-section-heading"><div><h2>Learning overview</h2><p>Your available resources for this course</p></div></div>
+    <div class="student-stats">
+      <div class="student-stat"><span class="student-stat-icon">❓</span><div><strong id="studentQuestionCount">—</strong><small>Published questions</small></div></div>
+      <div class="student-stat"><span class="student-stat-icon">📚</span><div><strong id="studentMaterialCount">—</strong><small>Study materials</small></div></div>
+      <div class="student-stat"><span class="student-stat-icon">🎯</span><div><strong>CCC & OAITA</strong><small>Available programmes</small></div></div>
+    </div>
+    <div class="student-section-heading"><div><h2>Learning activities</h2><p>Choose what you want to study today</p></div></div>
+    <div class="student-activity-grid">
+      <article class="student-activity-card"><div class="activity-icon practice-icon">📝</div><div><h3>Practice Tests</h3><p>Attempt timed tests and review your answers to strengthen your knowledge.</p></div><button class="btn primary" onclick="page('practice')">Open Practice Tests <span>→</span></button></article>
+      <article class="student-activity-card"><div class="activity-icon tutorial-icon">📚</div><div><h3>Tutorials & Study Materials</h3><p>Read lessons and open PDF or Word resources assigned to your course.</p></div><button class="btn primary" onclick="showStudentActivity('tutorials')">Open Tutorials <span>→</span></button></article>
+      <article class="student-activity-card"><div class="activity-icon questions-icon">❔</div><div><h3>Online Test Questions</h3><p>Practise questions published by your course administrator.</p></div><button class="btn primary" onclick="page('practice')">Open Test Questions <span>→</span></button></article>
+      <article class="student-activity-card"><div class="activity-icon course-icon-box">📖</div><div><h3>My Course</h3><p>View the learning resources available for your enrolled course.</p></div><button class="btn outline" onclick="showStudentActivity('tutorials')">View Course Materials <span>→</span></button></article>
+    </div>
+    <div id="studentTutorials" class="panel hidden student-material-panel"><div class="head" style="margin-top:0"><div><h3>My Tutorials & Study Materials</h3><p class="small">Materials published for your enrolled course</p></div><button class="btn outline" onclick="loadStudentMaterials()">Refresh</button></div><div id="studentMaterials">Loading materials…</div></div>
+    <div class="student-footer-note"><span>💡</span><p><b>Keep learning at your own pace.</b><br>Complete a tutorial, practise questions, and revisit topics whenever you need.</p></div>
+  </div>
+</div>
+<div id="passwordPanel" class="panel hidden" style="max-width:560px"><h3>Change your initial password</h3><form id="passwordForm"><div class="field"><label>New password (minimum 8 characters)</label><input id="newPass" type="password" minlength="8" required></div><div class="field"><label>Confirm password</label><input id="confirmPass" type="password" minlength="8" required></div><div id="passMsg"></div><button class="btn primary">Update password</button></form></div></section>
+<section id="practice" class="hidden"><div class="head"><h2>Practice tests</h2><button class="btn outline" onclick="page('dashboard')">Back to Dashboard</button></div><div id="practiceChoices" class="grid"><article class="card"><div class="course-icon">💻</div><h3>CCC — Sample Test</h3><p>Computer concepts, internet, digital payments and office tools.</p><div class="chips"><span class="chip">10 questions</span><span class="chip">10 minutes</span></div><button class="btn primary" onclick="startTest('CCC')">Begin CCC test</button></article><article class="card"><div class="course-icon">📝</div><h3>OAITA — Sample Test</h3><p>Word processing, spreadsheets, presentations and computer basics.</p><div class="chips"><span class="chip">10 questions</span><span class="chip">10 minutes</span></div><button class="btn primary" onclick="startTest('OAITA')">Begin OAITA test</button></article></div>
+<div id="quiz" class="panel hidden"><div class="quiztop"><div><span class="chip" id="courseTag"></span><h2 id="quizTitle"></h2></div><b>Time: <span id="timer">10:00</span></b></div><div class="progress"><div id="progressBar"></div></div><div class="quiztop"><span class="small" id="questionCounter"></span><span class="small" id="answeredCount"></span></div><h3 class="question" id="questionText"></h3><div id="options"></div><div id="answerNote" class="notice hidden"></div><div class="quizactions"><button class="btn outline" id="prevBtn" onclick="prevQ()">Previous</button><button class="btn outline" id="reviewBtn" onclick="markReview()">Mark for review</button><button class="btn primary" id="nextBtn" onclick="nextQ()">Next</button><button class="btn primary hidden" id="submitBtn" onclick="submitTest()">Submit test</button></div></div>
+<div id="results" class="panel hidden"><h2>Test completed</h2><div class="stats"><div class="stat"><strong id="score">0/10</strong><span>Correct</span></div><div class="stat"><strong id="percent">0%</strong><span>Score</span></div><div class="stat"><strong id="wrong">0</strong><span>Incorrect / unanswered</span></div></div><p id="resultMsg"></p><div id="reviewList"></div><button class="btn primary" onclick="resetPractice()">Choose another test</button></div></section>
+</main><footer class="footer">© <span id="year"></span> Ryuhmo Learning Portal · CCC & OAITA<br>Practice questions are learning resources, not official examination papers.</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.8.0/mammoth.browser.min.js"></script>
+<script>
+const SUPABASE_URL="https://dwnlnhxrbjlaghwguejy.supabase.co";
+const SUPABASE_PUBLISHABLE_KEY="sb_publishable_DC-AYJ52ko8idtsfPBD2_w_2zL1AITs";
+const configured=SUPABASE_PUBLISHABLE_KEY.startsWith("sb_publishable_")&&window.supabase;
+const sb=configured?window.supabase.createClient(SUPABASE_URL,SUPABASE_PUBLISHABLE_KEY):null;
+// Define the DOM helper before any Admin form handlers use it.
+const $=id=>document.getElementById(id);
+function msg(id,t,ok=false){const e=document.getElementById(id);e.className="message "+(ok?"success":"error");e.textContent=t}
+function page(id,course){["home","register","studentLogin","adminLogin","dashboard","practice"].forEach(x=>document.getElementById(x).classList.toggle("hidden",x!==id));if(id==="register"&&course)document.getElementById("rCourse").value=course;if(id==="studentLogin"){document.getElementById("studentLoginForm").reset();document.getElementById("studentLoginMsg").innerHTML=""}if(id==="adminLogin"){document.getElementById("adminLoginForm").reset();document.getElementById("adminLoginMsg").innerHTML=""}if(id==="practice")resetPractice();window.scrollTo({top:0,behavior:"smooth"})}
+function ready(){if(!sb){alert("Add your Supabase sb_publishable_ key in the website code before publishing.");return false}return true}
+document.getElementById("regForm").addEventListener("submit",async e=>{e.preventDefault();if(!ready())return;const b=document.getElementById("regBtn");b.disabled=true;b.textContent="Submitting…";try{const {data,error}=await sb.functions.invoke("submit-registration",{body:{full_name:rName.value.trim(),registration_number:rNumber.value.trim(),phone_number:rPhone.value.trim(),course_code:rCourse.value}});if(error)throw error;if(!data?.success)throw Error(data?.error||"Submission failed");msg("regMsg",data.message+" Reference: "+data.request_id,true);e.target.reset()}catch(x){msg("regMsg",x.message||"Unable to submit")}finally{b.disabled=false;b.textContent="Submit registration"}});
+function authEmail(v){v=v.trim();return v.includes("@")?v:v.toLowerCase()+"@students.ryuhmotools.in"}
+async function signInFrom(formId,idId,passId,msgId,btnId,expectedRole){const form=document.getElementById(formId),b=document.getElementById(btnId);if(!ready())return;b.disabled=true;try{const {data,error}=await sb.auth.signInWithPassword({email:expectedRole==="student"?authEmail(document.getElementById(idId).value):document.getElementById(idId).value.trim(),password:document.getElementById(passId).value});if(error)throw error;const {data:profile,error:profileError}=await sb.from("profiles").select("role").eq("id",data.user.id).single();if(profileError||!profile)throw Error("Account profile not found. Contact administrator.");const isAdmin=["admin","super_admin"].includes(profile.role);if((expectedRole==="student"&&profile.role!=="student")||(expectedRole==="admin"&&!isAdmin)){await sb.auth.signOut();throw Error(expectedRole==="student"?"This is not a student account. Please use Admin Login.":"This is not an administrator account. Please use Student Login.")}await dashboard(data.user)}catch(x){msg(msgId,x.message||"Login failed")}finally{b.disabled=false}}
+document.getElementById("studentLoginForm").addEventListener("submit",e=>{e.preventDefault();signInFrom("studentLoginForm","studentLoginId","studentLoginPass","studentLoginMsg","studentLoginBtn","student")});
+document.getElementById("adminLoginForm").addEventListener("submit",e=>{e.preventDefault();signInFrom("adminLoginForm","adminLoginId","adminLoginPass","adminLoginMsg","adminLoginBtn","admin")});
+async function dashboard(user){const {data:p,error}=await sb.from("profiles").select("full_name,role,must_change_password").eq("id",user.id).single();if(error||!p){await sb.auth.signOut();page("studentLogin");msg("studentLoginMsg","Profile unavailable. Contact administrator.");return}page("dashboard");dashTitle.textContent=p.role==="student"?"Student dashboard":"Administration dashboard";welcome.textContent="Signed in as "+p.full_name;const isAdmin=["admin","super_admin"].includes(p.role);adminPanel.classList.toggle("hidden",!isAdmin);contentAdmin.classList.toggle("hidden",!isAdmin);studentPanel.classList.toggle("hidden",p.role!=="student"||p.must_change_password);passwordPanel.classList.toggle("hidden",p.role!=="student"||!p.must_change_password);if(isAdmin){loadRequests();loadContentAdmin()}if(p.role==="student"){
+  const {data:en,error:enError}=await sb.from("student_enrollments").select("course_id,courses(code,name)").eq("user_id",user.id).maybeSingle();
+  const courseCode=en?.courses?.code||"";
+  const courseName=en?.courses?.name||courseCode;
+  studentCourse.textContent=courseName||"Course enrolment not linked";
+  document.getElementById("studentCourseSummary").textContent=courseName
+    ? (courseCode?courseCode+" · ":"")+"Your enrolled learning programme"
+    : "Your administrator may need to link your approved course enrolment.";
+  window.studentCourseId=en?.course_id;
+  window.studentCourseCode=courseCode;
+  if(enError)console.warn("Could not load course enrolment:",enError);
+  await loadStudentOverview(courseCode);
+  loadStudentMaterials();
+}}
+async function loadStudentOverview(courseCode){
+  const q=document.getElementById("studentQuestionCount");
+  const m=document.getElementById("studentMaterialCount");
+  if(!courseCode){q.textContent="—";m.textContent="—";return}
+  const [questions,materials]=await Promise.all([
+    sb.from("portal_questions").select("id",{count:"exact",head:true}).eq("course_code",courseCode).eq("is_published",true),
+    sb.from("portal_materials").select("id",{count:"exact",head:true}).eq("course_code",courseCode).eq("is_published",true)
+  ]);
+  q.textContent=questions.error?"—":String(questions.count??0);
+  m.textContent=materials.error?"—":String(materials.count??0);
+  if(questions.error)console.warn("Question count unavailable:",questions.error);
+  if(materials.error)console.warn("Material count unavailable:",materials.error);
+}
+function studentSection(id,button){
+  document.querySelectorAll(".student-sidebar .side-link").forEach(x=>x.classList.remove("active"));
+  if(button)button.classList.add("active");
+  if(id==="courseInfo")document.getElementById("courseInfo").scrollIntoView({behavior:"smooth",block:"center"});
+  else window.scrollTo({top:0,behavior:"smooth"});
+}
+function showStudentActivity(which){document.getElementById("studentTutorials").classList.toggle("hidden",which!=="tutorials");if(which==="tutorials")loadStudentMaterials();document.getElementById("studentTutorials").scrollIntoView({behavior:"smooth",block:"start"})}
+async function logout(){if(sb)await sb.auth.signOut();page("home")}
+async function loadRequests(){const body=document.getElementById("requestRows");body.innerHTML="<tr><td colspan='6'>Loading…</td></tr>";const {data,error}=await sb.from("registration_requests").select("id,full_name,registration_number,phone_number,status,created_at,courses(code)").order("created_at",{ascending:false});if(error){body.innerHTML="<tr><td colspan='6'>Could not load. Check the admin SELECT policy in Supabase.</td></tr>";msg("adminMsg",error.message);return}nPending.textContent=data.filter(x=>x.status==="pending").length;nApproved.textContent=data.filter(x=>x.status==="approved").length;nRejected.textContent=data.filter(x=>x.status==="rejected").length;body.innerHTML="";data.forEach(r=>{const tr=document.createElement("tr");[r.full_name,r.registration_number,r.phone_number,r.courses?.code||"—",r.status].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.appendChild(td)});const td=document.createElement("td");if(r.status==="pending"){const a=document.createElement("button");a.className="btn primary";a.textContent="Approve";a.onclick=()=>approve(r.id);const rej=document.createElement("button");rej.className="btn danger";rej.textContent="Reject";rej.style.marginLeft="5px";rej.onclick=()=>reject(r.id);td.append(a,rej)}else td.textContent="—";tr.appendChild(td);body.appendChild(tr)});if(!data.length)body.innerHTML="<tr><td colspan='6'>No applications found.</td></tr>"}
+async function approve(id){if(!confirm("Approve this student and create their account?"))return;const {data,error}=await sb.functions.invoke("approve-registration",{body:{request_id:id}});if(error){msg("adminMsg",error.message);return}if(!data?.success){msg("adminMsg",data?.error||"Approval failed");return}msg("adminMsg","Student approved. Initial password: "+data.student.initial_password,true);loadRequests()}
+async function reject(id){if(!confirm("Reject this application?"))return;const {error}=await sb.from("registration_requests").update({status:"rejected",reviewed_at:new Date().toISOString()}).eq("id",id).eq("status","pending");if(error){msg("adminMsg",error.message);return}msg("adminMsg","Application rejected.",true);loadRequests()}
+document.getElementById("passwordForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const a=document.getElementById("newPass").value;
+  const b=document.getElementById("confirmPass").value;
+  if(a.length<8){msg("passMsg","Password must contain at least 8 characters.");return}
+  if(a!==b){msg("passMsg","Passwords do not match. Please enter the same password twice.");return}
+  const submit=e.target.querySelector("button[type=submit],button:not([type])");
+  if(submit){submit.disabled=true;submit.textContent="Updating…"}
+  try{
+    const {error:passwordError}=await sb.auth.updateUser({password:a});
+    if(passwordError)throw passwordError;
+
+    // Use the secure database function created in Supabase SQL Editor.
+    // It changes only the signed-in student's own must_change_password flag.
+    const {error:flagError}=await sb.rpc("mark_initial_password_changed");
+    if(flagError)throw Error("Your password was changed, but the portal could not confirm the first-time setup. Please contact the administrator and share this message: "+flagError.message);
+
+    const {data:profileCheck,error:checkError}=await sb
+      .from("profiles")
+      .select("must_change_password")
+      .eq("id",(await sb.auth.getUser()).data.user.id)
+      .single();
+    if(checkError)throw checkError;
+    if(profileCheck.must_change_password!==false)throw Error("Password update was not confirmed. Please try again or contact the administrator.");
+
+    e.target.reset();
+    await sb.auth.signOut();
+    document.getElementById("studentLoginForm").reset();
+    document.getElementById("studentLoginMsg").innerHTML="";
+    page("studentLogin");
+    msg("studentLoginMsg","Initial password changed successfully. Please sign in with your new password.",true);
+  }catch(err){
+    msg("passMsg",err.message||"Could not update password");
+  }finally{
+    if(submit){submit.disabled=false;submit.textContent="Update password"}
+  }
+});
+
+let editingQuestionId=null, editingMaterialId=null;
+const allowedMaterialExt=["pdf","doc","docx"];
+function resetQuestionForm(){editingQuestionId=null;$("questionForm").reset();$("qPublished").checked=true;$("qFormTitle").textContent="Add practice question";$("qSave").textContent="Save question"}
+function resetMaterialForm(){editingMaterialId=null;$("materialForm").reset();$("mPublished").checked=true;$("mType").value="text";$("mFormTitle").textContent="Add learning material";$("mSave").textContent="Save material"}
+async function courseIdByCode(code){const {data,error}=await sb.from("courses").select("id").eq("code",code).single();if(error)throw error;return data.id}
+async function loadContentAdmin(){
+  const [qs,ms]=await Promise.all([
+    sb.from("portal_questions").select("*").order("created_at",{ascending:false}),
+    sb.from("portal_materials").select("*").order("created_at",{ascending:false})
+  ]);
+  if(qs.error){msg("qMsg",qs.error.message)}else{
+    const body=$("questionRows");body.innerHTML="";
+    qs.data.forEach(q=>{const tr=document.createElement("tr");[q.course_code,q.topic,q.question_text,q.is_published?"Yes":"No"].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});const td=document.createElement("td");const edit=document.createElement("button");edit.className="btn outline";edit.textContent="Edit";edit.onclick=()=>editQuestion(q);const del=document.createElement("button");del.className="btn danger";del.textContent="Delete";del.style.marginLeft="5px";del.onclick=()=>deleteQuestion(q.id);td.append(edit,del);tr.append(td);body.append(tr)});
+    if(!qs.data.length)body.innerHTML="<tr><td colspan='5'>No questions added yet.</td></tr>";
+  }
+  if(ms.error){msg("mMsg",ms.error.message)}else{
+    const body=$("materialRows");body.innerHTML="";
+    ms.data.forEach(m=>{const tr=document.createElement("tr");[m.course_code,m.title,m.material_type,m.is_published?"Yes":"No"].forEach(v=>{const td=document.createElement("td");td.textContent=v;tr.append(td)});const td=document.createElement("td");const edit=document.createElement("button");edit.className="btn outline";edit.textContent="Edit";edit.onclick=()=>editMaterial(m);const del=document.createElement("button");del.className="btn danger";del.textContent="Delete";del.style.marginLeft="5px";del.onclick=()=>deleteMaterial(m);td.append(edit,del);tr.append(td);body.append(tr)});
+    if(!ms.data.length)body.innerHTML="<tr><td colspan='5'>No learning materials added yet.</td></tr>";
+  }
+}
+function editQuestion(q){editingQuestionId=q.id;$("qCourse").value=q.course_code;$("qTopic").value=q.topic;$("qText").value=q.question_text;["qA","qB","qC","qD"].forEach((id,i)=>$(id).value=q.options[i]||"");$("qCorrect").value=q.correct_index;$("qExplanation").value=q.explanation||"";$("qPublished").checked=q.is_published;$("qFormTitle").textContent="Edit practice question";$("qSave").textContent="Update question";window.scrollTo({top:$("contentAdmin").offsetTop,behavior:"smooth"})}
+function editMaterial(m){editingMaterialId=m.id;$("mCourse").value=m.course_code;$("mTitle").value=m.title;$("mTopic").value=m.topic||"";$("mType").value=m.material_type;$("mContent").value=m.content_text||"";$("mPublished").checked=m.is_published;$("mFile").value="";$("mFormTitle").textContent="Edit learning material (choose a file only to replace it)";$("mSave").textContent="Update material";window.scrollTo({top:$("contentAdmin").offsetTop,behavior:"smooth"})}
+$("questionForm").addEventListener("submit",async e=>{e.preventDefault();if(!ready())return;const b=$("qSave");b.disabled=true;try{const payload={course_code:$("qCourse").value,topic:$("qTopic").value.trim(),question_text:$("qText").value.trim(),options:[$("qA").value.trim(),$("qB").value.trim(),$("qC").value.trim(),$("qD").value.trim()],correct_index:Number($("qCorrect").value),explanation:$("qExplanation").value.trim(),is_published:$("qPublished").checked};let result=editingQuestionId?await sb.from("portal_questions").update(payload).eq("id",editingQuestionId):await sb.from("portal_questions").insert(payload);if(result.error)throw result.error;msg("qMsg",editingQuestionId?"Question updated.":"Question added.",true);resetQuestionForm();await loadContentAdmin()}catch(err){msg("qMsg",err.message||"Could not save question")}finally{b.disabled=false}});
+async function deleteQuestion(id){if(!confirm("Delete this question?"))return;const {error}=await sb.from("portal_questions").delete().eq("id",id);if(error){msg("qMsg",error.message);return}msg("qMsg","Question deleted.",true);loadContentAdmin()}
+$("materialForm").addEventListener("submit",async e=>{e.preventDefault();if(!ready())return;const b=$("mSave");b.disabled=true;try{
+  const type=$("mType").value,file=$("mFile").files[0];let filePath=null;
+  if(type==="text"&&!$("mContent").value.trim())throw Error("Please enter the text lesson content.");
+  if(type!=="text"&&!editingMaterialId&&!file)throw Error("Please choose a PDF or Word document.");
+  if(file){const ext=file.name.split(".").pop().toLowerCase();if(!allowedMaterialExt.includes(ext))throw Error("Only PDF, DOC and DOCX files are allowed.");if(file.size>20*1024*1024)throw Error("File must be 20 MB or smaller.");const path=`${$("mCourse").value}/${crypto.randomUUID()}.${ext}`;const up=await sb.storage.from("learning-materials").upload(path,file,{upsert:false,contentType:file.type||"application/octet-stream"});if(up.error)throw up.error;filePath=path}
+  const payload={course_code:$("mCourse").value,title:$("mTitle").value.trim(),topic:$("mTopic").value.trim(),material_type:type,content_text:$("mContent").value.trim(),is_published:$("mPublished").checked};if(filePath)payload.file_path=filePath;
+  const result=editingMaterialId?await sb.from("portal_materials").update(payload).eq("id",editingMaterialId):await sb.from("portal_materials").insert(payload);
+  if(result.error){if(filePath)await sb.storage.from("learning-materials").remove([filePath]);throw result.error}
+  msg("mMsg",editingMaterialId?"Material updated.":"Material added.",true);resetMaterialForm();await loadContentAdmin();
+}catch(err){msg("mMsg",err.message||"Could not save material")}finally{b.disabled=false}
+});
+async function deleteMaterial(m){if(!confirm("Delete this learning material?"))return;const {error}=await sb.from("portal_materials").delete().eq("id",m.id);if(error){msg("mMsg",error.message);return}if(m.file_path)await sb.storage.from("learning-materials").remove([m.file_path]);msg("mMsg","Material deleted.",true);loadContentAdmin()}
+// Bulk material upload: one database row and one private-storage object per selected file.
+async function uploadBulkMaterials(){
+ if(!ready())return;const files=Array.from($("bulkMaterialFiles").files||[]);if(!files.length){msg("bulkMaterialMsg","Please select at least one file.");return}
+ const btn=$("bulkMaterialBtn");btn.disabled=true;let done=0,failed=[];const course=$("bulkMaterialCourse").value,topic=$("bulkMaterialTopic").value.trim(),published=$("bulkMaterialPublished").checked;
+ try{for(const file of files){let path=null;try{const ext=file.name.split(".").pop().toLowerCase();if(!allowedMaterialExt.includes(ext))throw Error("Unsupported file type");if(file.size>20*1024*1024)throw Error("File exceeds 20 MB");const clean=file.name.replace(/\.[^.]+$/," ").replace(/[_-]+/g," ").trim();path=`${course}/${crypto.randomUUID()}.${ext}`;const up=await sb.storage.from("learning-materials").upload(path,file,{upsert:false,contentType:file.type||"application/octet-stream"});if(up.error)throw up.error;const payload={course_code:course,title:clean,topic,material_type:ext==="pdf"?"pdf":"word",content_text:"",file_path:path,is_published:published};const ins=await sb.from("portal_materials").insert(payload);if(ins.error){await sb.storage.from("learning-materials").remove([path]);throw ins.error}done++}catch(err){failed.push(file.name+": "+(err.message||"Upload failed"))}}
+ $("bulkMaterialFiles").value="";await loadContentAdmin();msg("bulkMaterialMsg",`${done} of ${files.length} materials uploaded.`+(failed.length?" Failed: "+failed.join(" | "):""),failed.length===0);
+ }catch(err){msg("bulkMaterialMsg",err.message||"Bulk upload failed")}finally{btn.disabled=false}
+}
+let importedQuestionDrafts=[];
+async function extractImportText(file){const ext=file.name.split(".").pop().toLowerCase();if(ext==="docx"){if(!window.mammoth)throw Error("Word reader did not load. Check your internet connection and retry.");const ab=await file.arrayBuffer();const result=await mammoth.extractRawText({arrayBuffer:ab});return result.value||""}if(ext==="pdf"){if(!window.pdfjsLib)throw Error("PDF reader did not load. Check your internet connection and retry.");pdfjsLib.GlobalWorkerOptions.workerSrc="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";const doc=await pdfjsLib.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;let out="";for(let n=1;n<=doc.numPages;n++){const page=await doc.getPage(n);const content=await page.getTextContent();out+=content.items.map(x=>x.str).join(" ")+"\n"}return out}throw Error("For question import, use a text-based PDF or DOCX. Older DOC files can still be uploaded as learning materials.")}
+function parseMCQText(raw){const lines=raw.replace(/\r/g,"").split(/\n/).map(x=>x.trim()).filter(Boolean);const blocks=[];let cur=null;for(const line of lines){if(/^\d+[.)]\s+/.test(line)){if(cur)blocks.push(cur);cur={question:line.replace(/^\d+[.)]\s*/,""),options:["","","",""],answer:null,explanation:""};continue}if(!cur)continue;let m=line.match(/^\(?([A-D])\)?[.)]\s*(.+)$/i);if(m){cur.options[m[1].toUpperCase().charCodeAt(0)-65]=m[2].trim();continue}m=line.match(/^(?:correct\s+)?answer\s*[:.-]\s*([A-D])\b/i);if(m){cur.answer=m[1].toUpperCase().charCodeAt(0)-65;continue}m=line.match(/^explanation\s*[:.-]\s*(.*)$/i);if(m){cur.explanation=m[1].trim();continue}if(cur.explanation){cur.explanation+=" "+line}else if(!cur.options.some(Boolean)){cur.question+=" "+line}}
+if(cur)blocks.push(cur);return blocks.filter(q=>q.question&&q.options.every(Boolean))}
+async function parseQuestionImport(){const file=$("questionImportFile").files[0];if(!file){msg("questionImportMsg","Choose a PDF or DOCX file first.");return}const btn=$("parseQuestionsBtn");btn.disabled=true;try{const text=await extractImportText(file);importedQuestionDrafts=parseMCQText(text);if(!importedQuestionDrafts.length)throw Error("No complete MCQs found. Please follow the numbered question and A–D option format.");renderQuestionImportPreview();msg("questionImportMsg",`${importedQuestionDrafts.length} questions extracted. Review the correct answers below before saving.`,true)}catch(err){importedQuestionDrafts=[];$("questionImportPreview").innerHTML="";msg("questionImportMsg",err.message||"Could not read this file.")}finally{btn.disabled=false}}
+function renderQuestionImportPreview(){const box=$("questionImportPreview");box.innerHTML="";importedQuestionDrafts.forEach((q,i)=>{const card=document.createElement("div");card.className="card";card.style.margin="12px 0";const h=document.createElement("h4");h.textContent=(i+1)+". "+q.question;card.append(h);q.options.forEach((o,j)=>{const p=document.createElement("p");p.textContent=String.fromCharCode(65+j)+". "+o;card.append(p)});const label=document.createElement("label");label.textContent="Correct answer (verify): ";const sel=document.createElement("select");sel.dataset.index=i;["A","B","C","D"].forEach((v,j)=>{const op=document.createElement("option");op.value=j;op.textContent=v;if(q.answer===j)op.selected=true;sel.append(op)});sel.addEventListener("change",()=>q.answer=Number(sel.value));label.append(sel);card.append(label);const ex=document.createElement("p");ex.className="muted";ex.textContent=q.explanation?"Explanation: "+q.explanation:"No explanation detected.";card.append(ex);box.append(card)});const save=document.createElement("button");save.className="btn primary";save.textContent="Save all reviewed questions";save.onclick=saveImportedQuestions;box.append(save)}
+async function saveImportedQuestions(){if(!ready())return;const topic=$("importTopic").value.trim();if(!topic){msg("questionImportMsg","Enter the chapter / topic first.");return}if(!importedQuestionDrafts.length)return;const payload=importedQuestionDrafts.map(q=>({course_code:$("importCourse").value,topic,question_text:q.question,options:q.options,correct_index:q.answer===null?0:q.answer,explanation:q.explanation,is_published:false}));const {error}=await sb.from("portal_questions").insert(payload);if(error){msg("questionImportMsg",error.message);return}msg("questionImportMsg",`${payload.length} questions saved as UNPUBLISHED. Check them in Manage Questions and publish when ready.`,true);importedQuestionDrafts=[];$("questionImportPreview").innerHTML="";$("questionImportFile").value="";await loadContentAdmin()}
+
+async function loadStudentMaterials(){
+ const box=$("studentMaterials");if(!window.studentCourseId){box.textContent="Your course enrolment could not be found.";return}
+ const {data,error}=await sb.from("portal_materials").select("*").eq("course_id",window.studentCourseId).eq("is_published",true).order("created_at",{ascending:false});
+ if(error){box.textContent=error.message;return}box.innerHTML="";
+ if(!data.length){box.textContent="No learning materials have been published for your course yet.";return}
+ for(const m of data){const card=document.createElement("div");card.className="card";card.style.margin="10px 0";const h=document.createElement("h3");h.textContent=m.title;const p=document.createElement("p");p.className="muted";p.textContent=(m.topic?m.topic+" · ":"")+m.material_type.toUpperCase();card.append(h,p);if(m.content_text){const c=document.createElement("p");c.textContent=m.content_text;card.append(c)}if(m.file_path){const {data:signed,error:signErr}=await sb.storage.from("learning-materials").createSignedUrl(m.file_path,3600);if(!signErr&&signed?.signedUrl){const a=document.createElement("a");a.href=signed.signedUrl;a.target="_blank";a.rel="noopener";a.textContent="Open / download material";a.className="btn primary";card.append(a)}}box.append(card)}
+}
+
+const questionBank = {
+ CCC: [
+  {q:"What does CPU stand for?",o:["Central Processing Unit","Computer Personal Unit","Central Program Utility","Control Processing User"],a:0,e:"CPU means Central Processing Unit. It executes instructions and processes data."},
+  {q:"Which device is primarily used to enter text?",o:["Monitor","Keyboard","Speaker","Projector"],a:1,e:"A keyboard is an input device used to enter text and commands."},
+  {q:"Which of these is an operating system?",o:["Microsoft Word","Windows","Google Search","PowerPoint"],a:1,e:"Windows is an operating system that manages computer hardware and software."},
+  {q:"What is the full form of RAM?",o:["Read Access Memory","Random Access Memory","Run Active Memory","Rapid Application Module"],a:1,e:"RAM stands for Random Access Memory. It temporarily holds data used by running programs."},
+  {q:"Which application is mainly used for spreadsheets?",o:["Microsoft Excel","Microsoft Paint","Notepad","VLC Player"],a:0,e:"Excel is a spreadsheet application used for calculations, tables and charts."},
+  {q:"What does URL identify?",o:["A computer's battery","A web resource address","A printer model","A file size"],a:1,e:"URL stands for Uniform Resource Locator, the address of a resource on the web."},
+  {q:"Which is an example of a strong security practice?",o:["Sharing passwords","Using the same password everywhere","Using unique passwords and multifactor authentication","Clicking every email link"],a:2,e:"Unique passwords and multifactor authentication help protect accounts."},
+  {q:"Which device produces a hard copy?",o:["Scanner","Printer","Microphone","Webcam"],a:1,e:"A printer produces a physical copy of digital content."},
+  {q:"What does phishing attempt to do?",o:["Improve computer speed","Steal sensitive information through deception","Clean a keyboard","Create a spreadsheet"],a:1,e:"Phishing uses deceptive messages or websites to obtain sensitive information."},
+  {q:"Which of these is a web browser?",o:["Google Chrome","Microsoft Excel","Windows Calculator","Adobe Reader"],a:0,e:"Google Chrome is a web browser used to access websites."},
+  {q:"Which key is commonly used to refresh a webpage on Windows?",o:["F1","F5","F12","Esc"],a:1,e:"F5 commonly refreshes the current webpage."},
+  {q:"Which is an example of cloud storage?",o:["Google Drive","A wired mouse","A keyboard","A local calculator"],a:0,e:"Google Drive stores files online and can make them accessible across devices."}
+ ],
+ OAITA: [
+  {q:"Which application is commonly used to create letters?",o:["Word processor","Media player","Calculator only","Antivirus only"],a:0,e:"A word processor is used to create, format and print documents."},
+  {q:"In a spreadsheet, what is the intersection of a row and column called?",o:["Slide","Cell","Page","Folder"],a:1,e:"A cell is the intersection of a row and a column."},
+  {q:"Which formula adds values from A1 to A5 in Excel?",o:["=ADD(A1-A5)","=SUM(A1:A5)","=TOTAL(A1;A5)","=PLUS(A1:A5)"],a:1,e:"SUM adds the values in the specified cell range."},
+  {q:"Which software is primarily used to create slide presentations?",o:["Microsoft PowerPoint","Notepad","File Explorer","Calculator"],a:0,e:"PowerPoint is presentation software used to create slides."},
+  {q:"What is the shortcut for copying selected text in Windows?",o:["Ctrl+X","Ctrl+V","Ctrl+C","Ctrl+Z"],a:2,e:"Ctrl+C copies selected content."},
+  {q:"What does Ctrl+Z commonly do?",o:["Undo the last action","Print the page","Save as","Select all"],a:0,e:"Ctrl+Z usually reverses the most recent action."},
+  {q:"Which spreadsheet reference represents column B, row 4?",o:["4B","B4","BB4","RowB"],a:1,e:"Cell addresses use the column letter followed by the row number."},
+  {q:"What is mail merge used for?",o:["Repairing a monitor","Creating personalized documents for multiple recipients","Deleting all emails","Compressing videos"],a:1,e:"Mail merge combines a document template with a recipient data source."},
+  {q:"Which file extension is commonly associated with modern Word documents?",o:[".xlsx",".pptx",".docx",".mp3"],a:2,e:".docx is the common modern Microsoft Word document extension."},
+  {q:"What is the purpose of a presentation's slide transition?",o:["Control how one slide changes to the next","Calculate a spreadsheet","Check spelling in a document only","Create a password"],a:0,e:"Transitions control the visual effect between slides."},
+  {q:"Which feature arranges data alphabetically or numerically?",o:["Sort","Zoom","Crop","Slide Show"],a:0,e:"Sorting orders data alphabetically, numerically or by other criteria."},
+  {q:"What does the spell-check tool help identify?",o:["Low battery","Potential spelling errors","Internet speed","Monitor resolution"],a:1,e:"Spell-check highlights possible spelling errors in a document."}
+ ]
+};
+let course="CCC",questions=[],current=0,answers={},marked={},seconds=600,timer=null,submitted=false;
+
+function stop(){if(timer){clearInterval(timer);timer=null}}
+function tick(){$("timer").textContent=Math.floor(seconds/60).toString().padStart(2,"0")+":"+String(seconds%60).padStart(2,"0")}
+async function startTest(c){
+  stop();
+  course=c;
+  const sampleBank=questionBank[c].slice();
+  let publishedBank=[];
+  try{
+    const {data:extra,error}=await sb.from("portal_questions")
+      .select("question_text,options,correct_index,explanation,topic")
+      .eq("course_code",c)
+      .eq("is_published",true);
+    if(error)throw error;
+    publishedBank=(extra||[]).map(x=>({
+      q:x.question_text,
+      o:x.options,
+      a:x.correct_index,
+      e:x.explanation||"Review the lesson material for this topic.",
+      topic:x.topic||""
+    }));
+  }catch(err){
+    console.error("Could not load published online questions:",err);
+    alert("Could not load published questions from the portal. Please check your internet connection or contact the administrator. Details: "+(err.message||err));
+    return;
+  }
+  // Always include published Admin questions first; fill remaining test slots with sample questions.
+  const shuffledPublished=publishedBank.sort(()=>Math.random()-.5);
+  const shuffledSamples=sampleBank.sort(()=>Math.random()-.5);
+  questions=shuffledPublished.slice(0,10);
+  if(questions.length<10){
+    questions=questions.concat(shuffledSamples.slice(0,10-questions.length));
+  }
+  current=0;answers={};marked={};seconds=600;submitted=false;
+  $("courseTag").textContent=c;
+  $("quizTitle").textContent=c+" practice test";
+  $("practiceChoices").classList.add("hidden");
+  $("results").classList.add("hidden");
+  $("quiz").classList.remove("hidden");
+  render();tick();
+  timer=setInterval(()=>{seconds--;tick();if(seconds<=0)submitTest(true)},1000);
+}
+function render(){const q=questions[current];$("questionCounter").textContent=`Question ${current+1} of ${questions.length}${marked[current]?" · Marked":""}`;$("questionText").textContent=q.q;$("progressBar").style.width=((current+1)/questions.length*100)+"%";$("answeredCount").textContent="Answered: "+Object.keys(answers).length;$("prevBtn").disabled=current===0;$("reviewBtn").textContent=marked[current]?"Remove mark":"Mark for review";$("options").innerHTML="";q.o.forEach((v,i)=>{const l=document.createElement("label");l.className="option"+(answers[current]===i?" selected":"");const r=document.createElement("input");r.type="radio";r.name="answer";r.checked=answers[current]===i;r.disabled=submitted;r.onchange=()=>{answers[current]=i;render()};const s=document.createElement("span");s.textContent=String.fromCharCode(65+i)+". "+v;l.append(r,s);if(submitted){if(i===q.a)l.classList.add("correct");else if(answers[current]===i)l.classList.add("wrong")}$("options").appendChild(l)});$("nextBtn").classList.toggle("hidden",submitted||current===questions.length-1);$("submitBtn").classList.toggle("hidden",submitted||current!==questions.length-1);$("nextBtn").textContent="Next";$("answerNote").classList.toggle("hidden",!submitted);if(submitted)$("answerNote").textContent=(answers[current]===q.a?"Correct. ":"Incorrect or unanswered. ")+"Explanation: "+q.e}
+function prevQ(){if(current>0){current--;render()}}function nextQ(){if(current<questions.length-1){current++;render()}else submitTest()}function markReview(){marked[current]=!marked[current];render()}
+function submitTest(auto=false){if(submitted)return;if(!auto&&!confirm("Submit your test now?"))return;submitted=true;stop();const correct=questions.filter((q,i)=>answers[i]===q.a).length,p=Math.round(correct/questions.length*100);$("score").textContent=correct+"/"+questions.length;$("percent").textContent=p+"%";$("wrong").textContent=questions.length-correct;$("resultMsg").textContent=p>=80?"Excellent work!":p>=50?"Good effort. Keep practising.":"Keep learning and review the explanations.";reviewList.innerHTML="";questions.forEach((q,i)=>{const d=document.createElement("p");d.textContent=(i+1)+". "+q.q+" — Your answer: "+(answers[i]===undefined?"Not answered":q.o[answers[i]])+" | Correct: "+q.o[q.a]+". "+q.e;reviewList.appendChild(d)});$("quiz").classList.add("hidden");$("results").classList.remove("hidden")}
+function resetPractice(){stop();$("quiz").classList.add("hidden");$("results").classList.add("hidden");$("practiceChoices").classList.remove("hidden")}
+$("year").textContent=new Date().getFullYear();
+</script></body></html>
